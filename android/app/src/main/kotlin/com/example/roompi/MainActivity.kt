@@ -1,4 +1,4 @@
-package com.example.roompi
+package roompi.id
 
 import io.flutter.embedding.android.FlutterActivity
 
