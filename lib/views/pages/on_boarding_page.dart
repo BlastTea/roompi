@@ -7,7 +7,10 @@ class OnBoardingPage1 extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         body: Stack(
           children: [
-            Image.asset('assets/images/logo half.png'),
+            Padding(
+              padding: EdgeInsets.only(top: MediaQuery.viewPaddingOf(context).top),
+              child: Image.asset('assets/images/_476871824.png'),
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -15,7 +18,7 @@ class OnBoardingPage1 extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
-                    'Belajar\nbahasa inggris itu\nmenyenangkan 👋',
+                    'Belajar itu\nmenyenangkan 👋',
                     style: Theme.of(context).textTheme.headlineLarge,
                   ),
                 ),
@@ -35,6 +38,9 @@ class OnBoardingPage1 extends StatelessWidget {
               const SizedBox(height: 8.0),
               MyFilledButton.tonal(
                 onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const SignInPage())),
+                backgroundColor: kColorWhite,
+                foregroundColor: kColorBorder,
+                borderColor: kColorBorder,
                 child: const Text('Sudah Punya Akun'),
               ),
             ],

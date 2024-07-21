@@ -13,7 +13,6 @@ import 'package:roompi/services/services.dart';
 import 'package:roompi/utils/utils.dart';
 import 'package:roompi/views/pages/pages.dart';
 import 'package:roompi/views/widgets/widgets.dart';
-import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
 
 part 'home_fragment.dart';

@@ -15,7 +15,7 @@ class EditProfilePage extends StatelessWidget {
                       title: const Text('Edit Profile'),
                       centerTitle: true,
                       pinned: true,
-                      foregroundColor: kColorWhite,
+                      foregroundColor: kColorBorder,
                       backgroundColor: Theme.of(context).colorScheme.surface,
                       flexibleSpace: FlexibleSpaceBar(
                         background: Align(
@@ -48,8 +48,8 @@ class EditProfilePage extends StatelessWidget {
                                     icon: Icons.account_circle_outlined,
                                     image: stateEditProfile.currentImageData != null ? MemoryImage(stateEditProfile.currentImageData!) : null,
                                     borderRadius: BorderRadius.circular(75.0),
-                                    containerBackgroundColor: const Color(0xFFA590A7),
-                                    dialogBackgroundColor: const Color(0xFFA590A7),
+                                    containerBackgroundColor: kColorPrimary,
+                                    dialogBackgroundColor: kColorPrimary,
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: SvgPicture.asset('assets/svgs/profile.svg'),

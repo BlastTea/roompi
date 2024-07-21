@@ -92,7 +92,7 @@ class HomePageState extends State<HomePage> {
             const ProfileFragment(),
           ][_selectedIndex],
           bottomNavigationBar: NavigationBarTheme(
-            data: NavigationBarTheme.of(context).copyWith(labelTextStyle: WidgetStatePropertyAll(Theme.of(context).textTheme.bodySmall?.copyWith(color: kColorSurface))),
+            data: NavigationBarTheme.of(context).copyWith(labelTextStyle: WidgetStatePropertyAll(Theme.of(context).textTheme.bodySmall?.copyWith(color: kColorBorder))),
             child: MyNavigationBar(
               backgroundColor: kColorWhite,
               indicatorShape: const RoundedRectangleBorder(borderRadius: kBorderRadius),

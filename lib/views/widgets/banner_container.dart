@@ -18,7 +18,7 @@ class BannerContainer extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.all(24.0),
         decoration: const BoxDecoration(
-          color: kColorWhite,
+          color: kColorPrimary,
           borderRadius: kBorderRadiusBanner,
           boxShadow: kBannerShadow,
         ),
@@ -39,7 +39,7 @@ class BannerContainer extends StatelessWidget {
       );
 
   Widget body(BuildContext context) => DefaultTextStyle(
-        style: Theme.of(context).textTheme.titleLarge!.copyWith(color: kColorBorder),
+        style: Theme.of(context).textTheme.titleLarge!.copyWith(color: kColorWhite),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -47,7 +47,7 @@ class BannerContainer extends StatelessWidget {
             const SizedBox(height: 8.0),
             if (subtitle != null)
               DefaultTextStyle(
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(color: kColorBorder),
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(color: kColorWhite),
                 child: subtitle!,
               ),
             const SizedBox(height: 8.0),

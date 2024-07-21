@@ -15,7 +15,7 @@ class LeaderboardPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             sliver: SliverToBoxAdapter(
               child: Text(
-                'Urutan kamu saat ini di ${stateLeaderboard.position ?? '-'}',
+                'Urutan ${currentUser?.role == UserRole.parent ? 'anak' : ''} Anda saat ini di ${stateLeaderboard.position ?? '-'}',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
@@ -51,21 +51,33 @@ class LeaderboardPage extends StatelessWidget {
                                 color: kColorBorder,
                                 shape: BoxShape.circle,
                               ),
-                              child: Center(child: Text('${index + 1}')),
+                              child: Center(child: Text('${index + 1}', style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorWhite))),
                             ),
                         },
                         const SizedBox(width: 8.0),
-                        ImageContainer.hero(
-                          key: UniqueKey(),
-                          tag: 'Leaderboard $index',
-                          width: 56.0,
-                          height: 56.0,
-                          image: CachedNetworkImageProvider(leaderboard.foto ?? ''),
-                          containerBackgroundColor: const Color(0xFFA590A7),
-                          dialogBackgroundColor: const Color(0xFFA590A7),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SvgPicture.asset('assets/svgs/profile.svg'),
+                        // ImageContainer.hero(
+                        //   key: UniqueKey(),
+                        //   tag: 'Leaderboard $index',
+                        //   width: 56.0,
+                        //   height: 56.0,
+                        //   image: CachedNetworkImageProvider(leaderboard.foto ?? ''),
+                        //   containerBackgroundColor: const Color(0xFFA590A7),
+                        //   dialogBackgroundColor: const Color(0xFFA590A7),
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.all(8.0),
+                        //     child: SvgPicture.asset('assets/svgs/profile.svg'),
+                        //   ),
+                        // ),
+                        ClipOval(
+                          child: CachedNetworkImage(
+                            imageUrl: leaderboard.foto ?? '',
+                            width: 56.0,
+                            height: 56.0,
+                            errorWidget: (context, url, error) => Container(
+                              color: kColorPrimary,
+                              padding: const EdgeInsets.all(8.0),
+                              child: SvgPicture.asset('assets/svgs/profile.svg'),
+                            ),
                           ),
                         ),
                         const SizedBox(width: 8.0),
@@ -112,7 +124,7 @@ class LeaderboardPage extends StatelessWidget {
                 centerTitle: true,
                 title: const Text('Leaderboard'),
                 foregroundColor: kColorWhite,
-                backgroundColor: kColorSurface,
+                backgroundColor: kColorPrimary,
               ),
               body: RefreshIndicator(
                 onRefresh: () {

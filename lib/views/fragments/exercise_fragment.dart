@@ -32,7 +32,6 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
         builder: (context, stateExercise) {
           if (stateExercise is ExerciseDataLoaded) {
             return Scaffold(
-              backgroundColor: const Color(0xFFA590A7),
               body: Column(
                 children: [
                   Container(
@@ -171,7 +170,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
       Container(
         padding: const EdgeInsets.all(16.0),
         decoration: const BoxDecoration(
-          color: kColorSurface,
+          color: kColorPrimary,
           border: Border(
             bottom: BorderSide(
               width: 5.0,
@@ -182,7 +181,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
         child: Column(
           children: [
             DefaultTextStyle(
-              style: Theme.of(context).textTheme.titleLarge!,
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(color: kColorWhite),
               child: Row(
                 children: [
                   Text('$title・'),
@@ -191,7 +190,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               ),
             ),
             const SizedBox(height: 8.0),
-            Text(description),
+            Text(description, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorWhite)),
           ],
         ),
       );

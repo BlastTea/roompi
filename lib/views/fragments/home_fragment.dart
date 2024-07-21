@@ -32,8 +32,8 @@ class HomeFragment extends StatelessWidget {
                     height: 40.0,
                     image: CachedNetworkImageProvider(currentUser?.foto ?? ''),
                     borderRadius: const BorderRadius.all(Radius.circular(20.0)),
-                    containerBackgroundColor: const Color(0xFFA590A7),
-                    dialogBackgroundColor: const Color(0xFFA590A7),
+                    containerBackgroundColor: kColorPrimary,
+                    dialogBackgroundColor: kColorPrimary,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SvgPicture.asset('assets/svgs/profile.svg'),
@@ -52,8 +52,8 @@ class HomeFragment extends StatelessWidget {
                       ],
                     )
                   else ...[
-                    const SizedBox(height: 16.0),
-                    Text('Selamat datang, ${currentUser?.name ?? 'Guest'}! 👋', style: Theme.of(context).textTheme.titleLarge),
+                    const SizedBox(width: 16.0),
+                    Expanded(child: Text('Selamat datang, ${currentUser?.name ?? 'Guest'}! 👋', style: Theme.of(context).textTheme.titleLarge)),
                   ],
                 ],
               ),
@@ -73,20 +73,20 @@ class HomeFragment extends StatelessWidget {
               sliver: SliverToBoxAdapter(
                 child: BannerContainer(
                   title: const Text('Chat dengan AI'),
-                  subtitle: const Text('Tingkatkan kemampuan bahasa Inggris Kamu dengan teknologi AI!'),
+                  subtitle: const Text('Tingkatkan kemampuan bahasa Inggris Anda dengan teknologi AI!'),
                   actions: [
                     TextButton(
                       onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const ChatbotPage())),
                       style: TextButton.styleFrom(padding: EdgeInsets.zero),
                       child: Text(
                         'Chat Sekarang',
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorWhite),
                       ),
                     ),
                     const SizedBox(width: 8.0),
                     const Icon(
                       Icons.forum,
-                      color: kColorBorder,
+                      color: kColorWhite,
                       size: 17.0,
                     )
                   ],
@@ -104,8 +104,9 @@ class HomeFragment extends StatelessWidget {
                       child: MyFilledButton.tonal(
                         onPressed: () => homePageKey.currentState?.setSelectedIndex(1),
                         icon: SvgPicture.asset('assets/svgs/exercise.svg'),
-                        textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: kColorPrimary),
+                        textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: kColorWhite),
                         padding: const EdgeInsets.all(8.0),
+                        backgroundColor: kColorPrimary,
                         borderColor: kColorBorder,
                         minHorizontalPadding: 8.0,
                         pressedBottomBorderWidth: 0.0,
@@ -118,8 +119,9 @@ class HomeFragment extends StatelessWidget {
                       child: MyFilledButton.tonal(
                         onPressed: () => homePageKey.currentState?.setSelectedIndex(2),
                         icon: SvgPicture.asset('assets/svgs/meet.svg'),
-                        textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: kColorPrimary),
+                        textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: kColorWhite),
                         padding: const EdgeInsets.all(8.0),
+                        backgroundColor: kColorPrimary,
                         borderColor: kColorBorder,
                         minHorizontalPadding: 8.0,
                         pressedBottomBorderWidth: 0.0,
@@ -146,6 +148,7 @@ class HomeFragment extends StatelessWidget {
                   onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const LeaderboardPage())),
                   icon: SvgPicture.asset('assets/svgs/chest.svg'),
                   padding: const EdgeInsets.all(16.0),
+                  backgroundColor: kColorPrimary,
                   borderColor: kColorBorder,
                   minHorizontalPadding: 16.0,
                   pressedBottomBorderWidth: 0.0,
@@ -158,8 +161,8 @@ class HomeFragment extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              'Leaderboard kamu!',
-                              style: Theme.of(context).textTheme.titleLarge?.copyWith(color: kColorBorder),
+                              'Leaderboard Anda!',
+                              style: Theme.of(context).textTheme.titleLarge?.copyWith(color: kColorWhite),
                             ),
                             const SizedBox(width: 8.0),
                             const Icon(Icons.arrow_forward, color: kColorBorder),
@@ -168,8 +171,8 @@ class HomeFragment extends StatelessWidget {
                         const SizedBox(height: 8.0),
                         Text(
                           // 'You\'ve Reached a Great Milestone! Celebrate Your Victory.',
-                          'Kamu telah mencapai tonggak sejarah yang luar biasa!',
-                          style: Theme.of(context).textTheme.bodySmall!.copyWith(color: kColorBorder),
+                          'Anda telah mencapai tonggak sejarah yang luar biasa!',
+                          style: Theme.of(context).textTheme.bodySmall!.copyWith(color: kColorWhite),
                           textAlign: TextAlign.start,
                         ),
                       ],
@@ -193,7 +196,7 @@ class HomeFragment extends StatelessWidget {
                   leading: SvgPicture.asset('assets/svgs/forums.svg'),
                   title: const Text('Berkomunikasi dengan percaya diri'),
                   subtitle: const Text('Lebih dari 60.200 latihan interaktif tanpa stres'),
-                  textColor: kColorWhite,
+                  textColor: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),
@@ -205,7 +208,7 @@ class HomeFragment extends StatelessWidget {
                   leading: SvgPicture.asset('assets/svgs/word card.svg'),
                   title: const Text('Membangun kosakata yang luas'),
                   subtitle: const Text('Lebih dari 6.400 kata dan frasa praktis'),
-                  textColor: kColorWhite,
+                  textColor: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),
@@ -217,7 +220,7 @@ class HomeFragment extends StatelessWidget {
                   leading: SvgPicture.asset('assets/svgs/watch.svg'),
                   title: const Text('Membentuk kebiasaan belajar'),
                   subtitle: const Text('Pengingat cerdas, tantangan menyenangkan, dan lainnya'),
-                  textColor: kColorWhite,
+                  textColor: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),

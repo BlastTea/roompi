@@ -69,39 +69,26 @@ class MeetFragment extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-              color: kColorWhite,
+              color: kColorPrimary,
               borderRadius: kBorderRadiusBanner,
               boxShadow: kBannerShadow,
             ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // IgnorePointer(
-                      //   child: MyFilledButton.circle(
-                      //     bottomBorderWidth: 2.0,
-                      //     onPressed: () {},
-                      //     image: DecorationImage(
-                      //       image: CachedNetworkImageProvider(meet.),
-                      //     ),
-                      //   ),
-                      // ),
-                      // const SizedBox(width: 16.0),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            meet.topik ?? '-',
-                            style: Theme.of(context).textTheme.titleLarge!.copyWith(color: kColorBorder),
-                          ),
-                          const SizedBox(height: 4.0),
-                          Text(
-                            meet.deskripsi ?? '-',
-                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorBorder),
-                          ),
-                        ],
+                      Text(
+                        meet.topik ?? '-',
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(color: kColorWhite),
+                      ),
+                      const SizedBox(height: 4.0),
+                      Text(
+                        meet.deskripsi ?? '-',
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorWhite),
                       ),
                     ],
                   ),
@@ -117,12 +104,12 @@ class MeetFragment extends StatelessWidget {
                               const Icon(
                                 Icons.date_range_outlined,
                                 size: 17.0,
-                                color: kColorBorder,
+                                color: kColorWhite,
                               ),
                               const SizedBox(width: 8.0),
                               Text(
                                 meet.tanggal?.toFormattedDate(withMonthName: true) ?? '-',
-                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorBorder),
+                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorWhite),
                               ),
                             ],
                           ),
@@ -132,12 +119,12 @@ class MeetFragment extends StatelessWidget {
                               const Icon(
                                 Icons.schedule,
                                 size: 17.0,
-                                color: kColorBorder,
+                                color: kColorWhite,
                               ),
                               const SizedBox(width: 8.0),
                               Text(
                                 '${TimeOfDay.fromDateTime(meet.jamMulai ?? DateTime.now()).toFormattedString()} - ${TimeOfDay.fromDateTime(meet.jamBerakhir ?? DateTime.now()).toFormattedString()}',
-                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorBorder),
+                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorWhite),
                               ),
                             ],
                           ),

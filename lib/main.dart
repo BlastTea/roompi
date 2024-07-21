@@ -2,18 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:m_widget/m_widget.dart';
 import 'package:roompi/blocs/blocs.dart';
 import 'package:roompi/services/services.dart';
 import 'package:roompi/utils/utils.dart';
 import 'package:roompi/views/pages/pages.dart';
-import 'package:linguabound_widget/linguabound_widget.dart';
+import 'package:roompi/views/widgets/widgets.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await dotenv.load();
 
-  await LinguaboundWidget.initialize();
+  await MWidget.initialize(
+    defaultLanguage: LanguageType.indonesiaIndonesian,
+    defaultTheme: ThemeValue(
+      themeMode: ThemeMode.light,
+      color: kColorPrimary,
+      withCustomColors: true,
+      useDynamicColors: true,
+    ),
+  );
 
   try {
     await ApiHelper.signInWithToken();
@@ -72,7 +81,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => changePasswordBloc),
         ],
         child: LinguaboundMaterialApp(
-          title: 'Linguabound',
+          title: 'ROOOMPI',
           home: currentUser != null ? HomePage(key: homePageKey) : const OnBoardingPage1(),
         ),
       );

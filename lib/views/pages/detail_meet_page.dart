@@ -18,7 +18,7 @@ class DetailMeetPage extends StatelessWidget {
           centerTitle: true,
           title: const Text('Detail Meet'),
           foregroundColor: kColorWhite,
-          backgroundColor: kColorSurface,
+          backgroundColor: kColorPrimary,
         ),
         body: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -26,11 +26,11 @@ class DetailMeetPage extends StatelessWidget {
             const SizedBox(height: 16.0),
             Text('Anda melakukan meet dengan', style: Theme.of(context).textTheme.titleSmall),
             Text('${meet.namaLengkap ?? '-'}, ${meet.gelar ?? ''}', style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 16.0),
-            Transform.translate(
-              offset: const Offset(-30.0, 0.0),
-              child: Image.asset('assets/images/question daily learning goal.png'),
-            ),
+            // const SizedBox(height: 16.0),
+            // Transform.translate(
+            //   offset: const Offset(-30.0, 0.0),
+            //   child: Image.asset('assets/images/question daily learning goal.png'),
+            // ),
             const SizedBox(height: 16.0),
             Text('Topik', style: Theme.of(context).textTheme.headlineMedium),
             Text(meet.topik ?? '-', style: Theme.of(context).textTheme.bodySmall),
@@ -97,6 +97,7 @@ class DetailMeetPage extends StatelessWidget {
                   : null,
               icon: SvgPicture.asset('assets/svgs/chest.svg'),
               padding: const EdgeInsets.all(16.0),
+              backgroundColor: kColorPrimary,
               borderColor: kColorBorder,
               minHorizontalPadding: 16.0,
               pressedBottomBorderWidth: 0.0,
@@ -110,14 +111,14 @@ class DetailMeetPage extends StatelessWidget {
                       children: [
                         Text(
                           'Materi.pdf',
-                          style: Theme.of(context).textTheme.titleLarge?.copyWith(color: kColorBorder),
+                          style: Theme.of(context).textTheme.titleLarge?.copyWith(color: kColorWhite),
                         ),
                       ],
                     ),
                     const SizedBox(height: 8.0),
                     Text(
                       'Ini adalah materi yang diberikan oleh mentor, silahkan diakses',
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(color: kColorBorder),
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(color: kColorWhite),
                       textAlign: TextAlign.start,
                     ),
                   ],

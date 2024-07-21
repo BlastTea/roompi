@@ -17,7 +17,7 @@ class ChatbotPage extends StatelessWidget {
               centerTitle: true,
               title: const Text('Chatbot'),
               foregroundColor: kColorWhite,
-              backgroundColor: kColorSurface,
+              backgroundColor: kColorPrimary,
             ),
             body: Column(
               children: [

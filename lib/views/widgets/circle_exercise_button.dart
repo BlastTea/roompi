@@ -23,7 +23,7 @@ class _CircleExerciseButtonState extends State<CircleExerciseButton> {
   Widget build(BuildContext context) => IgnorePointer(
         ignoring: !widget.enabled || widget.ignorePointer,
         child: MyFilledButton.circle(
-          backgroundColor: widget.enabled ? kColorSurface : const Color(0xFFE5E5E5),
+          backgroundColor: widget.enabled ? kColorPrimary : const Color(0xFFE5E5E5),
           borderColor: widget.enabled ? null : const Color(0xFFAFAFAF),
           radius: 64.0,
           bottomBorderOnly: true,

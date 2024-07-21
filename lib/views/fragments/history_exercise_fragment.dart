@@ -72,7 +72,10 @@ class HistoryExerciseFragment extends StatelessWidget {
                                         Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Text('${historyExercise.namaBagian ?? '-'}・${historyExercise.namaSubBagian ?? '-'}'),
+                                            Text(
+                                              '${historyExercise.namaBagian ?? '-'}・${historyExercise.namaSubBagian ?? '-'}',
+                                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorBorder),
+                                            ),
                                             const SizedBox(height: 8.0),
                                             Text('Nilai : ${historyExercise.nilai}'),
                                           ],

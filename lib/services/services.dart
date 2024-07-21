@@ -9,7 +9,6 @@ import 'package:roompi/main.dart';
 import 'package:roompi/models/models.dart';
 import 'package:roompi/utils/utils.dart';
 import 'package:roompi/views/pages/pages.dart';
-import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

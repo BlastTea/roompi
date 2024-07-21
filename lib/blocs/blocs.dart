@@ -10,9 +10,9 @@ import 'package:roompi/models/models.dart';
 import 'package:roompi/services/services.dart';
 import 'package:roompi/utils/utils.dart';
 import 'package:roompi/views/pages/pages.dart';
-import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
 import 'package:http/http.dart' as http;
+import 'package:roompi/views/widgets/widgets.dart';
 
 part 'authentication_bloc/authentication_bloc.dart';
 part 'authentication_bloc/authentication_event.dart';

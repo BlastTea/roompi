@@ -217,7 +217,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   ['Benar', 'Keren'][Random().nextInt(2)],
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.green),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               const SizedBox(height: 16.0),
@@ -229,8 +229,6 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
                     _goToNextAssesmentPage();
                     add(SetExerciseState());
                   },
-                  backgroundColor: Colors.green.withOpacity(0.7),
-                  borderColor: Colors.green,
                   child: const Text('Lanjutkan'),
                 ),
               ),

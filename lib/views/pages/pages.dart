@@ -14,7 +14,6 @@ import 'package:roompi/services/services.dart';
 import 'package:roompi/utils/utils.dart';
 import 'package:roompi/views/fragments/fragments.dart';
 import 'package:roompi/views/widgets/widgets.dart';
-import 'package:linguabound_widget/linguabound_widget.dart';
 import 'package:m_widget/m_widget.dart';
 import 'package:open_file_plus/open_file_plus.dart';
 import 'package:path/path.dart' as path;
