@@ -208,35 +208,35 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
         height: 600.0,
         child: Stack(
           children: [
-            Positioned(
-              left: isLeft ? -10.0 : null,
-              right: !isLeft ? -10.0 : null,
-              child: SvgPicture.asset(
-                'assets/svgs/bird facing ${isLeft ? 'left' : 'right'}.svg',
-                width: 205.0,
-                height: 205.0,
-              ),
-            ),
-            Positioned(
-              right: isLeft ? -10.0 : null,
-              left: !isLeft ? -10.0 : null,
-              top: 300.0 - 102.5,
-              child: SvgPicture.asset(
-                'assets/svgs/bird facing ${isLeft ? 'right' : 'left'}.svg',
-                width: 205.0,
-                height: 205.0,
-              ),
-            ),
-            Positioned(
-              left: isLeft ? -10.0 : null,
-              right: !isLeft ? -10.0 : null,
-              bottom: 0.0,
-              child: SvgPicture.asset(
-                'assets/svgs/bird facing ${isLeft ? 'left' : 'right'}.svg',
-                width: 205.0,
-                height: 205.0,
-              ),
-            ),
+            // Positioned(
+            //   left: isLeft ? -10.0 : null,
+            //   right: !isLeft ? -10.0 : null,
+            //   child: SvgPicture.asset(
+            //     'assets/svgs/bird facing ${isLeft ? 'left' : 'right'}.svg',
+            //     width: 205.0,
+            //     height: 205.0,
+            //   ),
+            // ),
+            // Positioned(
+            //   right: isLeft ? -10.0 : null,
+            //   left: !isLeft ? -10.0 : null,
+            //   top: 300.0 - 102.5,
+            //   child: SvgPicture.asset(
+            //     'assets/svgs/bird facing ${isLeft ? 'right' : 'left'}.svg',
+            //     width: 205.0,
+            //     height: 205.0,
+            //   ),
+            // ),
+            // Positioned(
+            //   left: isLeft ? -10.0 : null,
+            //   right: !isLeft ? -10.0 : null,
+            //   bottom: 0.0,
+            //   child: SvgPicture.asset(
+            //     'assets/svgs/bird facing ${isLeft ? 'left' : 'right'}.svg',
+            //     width: 205.0,
+            //     height: 205.0,
+            //   ),
+            // ),
             Positioned(
               top: 80.0,
               left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
