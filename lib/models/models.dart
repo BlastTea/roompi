@@ -315,7 +315,7 @@ enum UserRole {
   parent;
 
   String get text => switch (this) {
-        remaja => 'Remaja',
+        remaja => 'Pelajar',
         mentor => 'Mentor',
         parent => 'Orang Tua',
       };

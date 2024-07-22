@@ -5,7 +5,7 @@ import 'package:roompi/views/pages/pages.dart';
 
 part 'page_route.dart';
 
-const kFontFamily = 'FeatherBold';
+const kFontFamily = 'Rubik';
 
 const kColorSurface = Color(0xFFFFFFFF);
 const kColorPrimary = Color(0xFF00B351);
