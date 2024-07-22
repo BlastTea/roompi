@@ -34,3 +34,5 @@ part 'sign_in/sign_up_page.dart';
 part 'sign_in/sign_up_successful_page.dart';
 part 'sign_in/sign_in_page.dart';
 part 'sign_in/sign_up_select_role_page.dart';
+part 'sign_in/sign_up_select_activity_type_page.dart';
+part 'sign_in/sign_up_select_equality_package_page.dart';

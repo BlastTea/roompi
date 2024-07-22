@@ -208,6 +208,16 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
         height: 600.0,
         child: Stack(
           children: [
+            Positioned(
+              right: isLeft ? 10.0 : null,
+              left: !isLeft ? 10.0 : null,
+              top: 300.0 - 102.5,
+              child: SvgPicture.asset(
+                'assets/svgs/${isLeft ? 'curly hair girl' : 'bearded man'}.svg',
+                width: 120.0,
+                height: 120.0,
+              ),
+            ),
             // Positioned(
             //   left: isLeft ? -10.0 : null,
             //   right: !isLeft ? -10.0 : null,

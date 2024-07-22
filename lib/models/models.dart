@@ -226,69 +226,6 @@ class MessageBubbleList with _$MessageBubbleList {
 
     return MessageBubbleList(data: results);
   }
-
-  // factory MessageBubbleList.fromRoom({required List<RoomChatMe> rooms}) {
-  //   List<List<MessageBubbleData>> results = [];
-
-  //   for (RoomChatMe room in rooms) {
-  //     List<MessageBubbleData> messageBubbles = [];
-  //     DateTime? lastDate;
-
-  //     for (int i = 0; i < (room.riwayats?.length ?? 0); i++) {
-  //       RiwayatChatMe riwayat = room.riwayats![i];
-  //       List<int?>? waktuChat = riwayat.waktuChat?.split(':').map((e) => int.tryParse(e)).toList();
-  //       DateTime currentChatDate = DateTime(riwayat.tglChat!.year, riwayat.tglChat!.month, riwayat.tglChat!.day, waktuChat?[0] ?? 0, waktuChat?[1] ?? 0, waktuChat?[2] ?? 0);
-
-  //       if (lastDate != null && (currentChatDate.day != lastDate.day || currentChatDate.month != lastDate.month || currentChatDate.year != lastDate.year)) messageBubbles.add(MessageBubbleData.dateTime(dateTime: lastDate));
-
-  //       messageBubbles.add(MessageBubbleData.text(
-  //         message: riwayat.pesan,
-  //         sentAt: currentChatDate,
-  //         isSender: riwayat.userId == currentUser?.idUser,
-  //       ));
-
-  //       if (i == room.riwayats!.length - 1) messageBubbles.add(MessageBubbleData.dateTime(dateTime: currentChatDate));
-
-  //       lastDate = currentChatDate;
-  //     }
-
-  //     results.add(messageBubbles);
-  //   }
-
-  //   return MessageBubbleList(data: results);
-  // }
-
-  // factory MessageBubbleList.fromTanyaAhli({required List<TanyaAhli> tanyaAhlis}) {
-  //   List<List<MessageBubbleData>> results = [];
-
-  //   for (TanyaAhli tanyaAhli in tanyaAhlis) {
-  //     List<MessageBubbleData> messageBubbles = [];
-  //     DateTime? lastDate;
-
-  //     if (tanyaAhli.jawabanAhli != null) {
-  //       lastDate = tanyaAhli.jawabanAhli!.waktuJawaban;
-
-  //       messageBubbles.add(MessageBubbleData.text(
-  //         message: tanyaAhli.jawabanAhli?.jawabanAhli,
-  //         sentAt: lastDate,
-  //       ));
-  //     }
-
-  //     DateTime currentChatDate = tanyaAhli.waktuTanya!;
-
-  //     if (lastDate != null && (currentChatDate.day != lastDate.day || currentChatDate.month != lastDate.month || currentChatDate.year != lastDate.year)) messageBubbles.add(MessageBubbleData.dateTime(dateTime: lastDate));
-
-  //     messageBubbles.add(MessageBubbleData.text(
-  //       message: tanyaAhli.pertanyaan,
-  //       sentAt: currentChatDate,
-  //       isSender: false,
-  //     ));
-
-  //     results.add(messageBubbles);
-  //   }
-
-  //   return MessageBubbleList(data: results);
-  // }
 }
 
 @freezed
@@ -330,5 +267,27 @@ enum MeetStatus {
   String get text => switch (this) {
         sudahDipublish => 'Sudah Dipublish',
         belumDipublish => 'Belum Dipublish',
+      };
+}
+
+enum ActivityType {
+  tamanBelajarMingguan,
+  pusatKegiatanBelajarMasyarakat;
+
+  String get text => switch (this) {
+        tamanBelajarMingguan => 'Taman Belajar Mingguan (TBM)',
+        pusatKegiatanBelajarMasyarakat => 'Pusat Kegiatan Belajar Masyarakat (PKBM)',
+      };
+}
+
+enum EqualityPackageType {
+  a,
+  b,
+  c;
+
+  String get text => switch (this) {
+        a => 'A',
+        b => 'B',
+        c => 'C',
       };
 }

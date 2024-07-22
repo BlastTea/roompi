@@ -4,9 +4,13 @@ class SignUpPage extends StatelessWidget {
   const SignUpPage({
     super.key,
     required this.selectedRole,
+    this.activityType,
+    this.equalityPackageType,
   });
 
   final UserRole selectedRole;
+  final ActivityType? activityType;
+  final EqualityPackageType? equalityPackageType;
 
   @override
   Widget build(BuildContext context) => BlocBuilder<AuthenticationBloc, AuthenticationState>(
