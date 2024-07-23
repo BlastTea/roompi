@@ -308,6 +308,50 @@ const _$MeetStatusEnumMap = {
   MeetStatus.belumDipublish: 'Belum dipublish',
 };
 
+_$MentorMeetImpl _$$MentorMeetImplFromJson(Map<String, dynamic> json) =>
+    _$MentorMeetImpl(
+      id: _parseInt(json['id']),
+      topik: json['topik'] as String?,
+      deskripsi: json['deskripsi'] as String?,
+      jamMulai: json['jam_mulai'] == null
+          ? null
+          : DateTime.parse(json['jam_mulai'] as String),
+      jamBerakhir: json['jam_berakhir'] == null
+          ? null
+          : DateTime.parse(json['jam_berakhir'] as String),
+      tanggal: json['tanggal'] == null
+          ? null
+          : DateTime.parse(json['tanggal'] as String),
+      link: json['link'] as String?,
+      materi: json['materi'] as String?,
+      totalRemaja: (json['total_remaja'] as num?)?.toInt(),
+      mentorId: (json['mentor_id'] as num?)?.toInt(),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
+      status: $enumDecodeNullable(_$MeetStatusEnumMap, json['status']),
+    );
+
+Map<String, dynamic> _$$MentorMeetImplToJson(_$MentorMeetImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'topik': instance.topik,
+      'deskripsi': instance.deskripsi,
+      'jam_mulai': instance.jamMulai?.toIso8601String(),
+      'jam_berakhir': instance.jamBerakhir?.toIso8601String(),
+      'tanggal': instance.tanggal?.toIso8601String(),
+      'link': instance.link,
+      'materi': instance.materi,
+      'total_remaja': instance.totalRemaja,
+      'mentor_id': instance.mentorId,
+      'created_at': instance.createdAt?.toIso8601String(),
+      'updated_at': instance.updatedAt?.toIso8601String(),
+      'status': _$MeetStatusEnumMap[instance.status],
+    };
+
 _$ChatbotDataImpl _$$ChatbotDataImplFromJson(Map<String, dynamic> json) =>
     _$ChatbotDataImpl(
       text: json['text'] as String,

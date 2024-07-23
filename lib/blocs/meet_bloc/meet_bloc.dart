@@ -14,7 +14,21 @@ class MeetBloc extends Bloc<MeetEvent, MeetState> {
       if (event.completer == null) emit(MeetInitial());
 
       try {
-        _meets = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_MEET']!).then((value) => (value['data'] as List).map((e) => Meet.fromJson(e)).toList());
+        if (currentUser?.role == UserRole.remaja) {
+          _meets = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_MEET']!)
+              .then((value) => (value['data'] as List)
+                  .map((e) => Meet.fromJson(e))
+                  .toList());
+        } else {
+          _meets = await ApiHelper.get(
+                  pathUrl: dotenv.env['ENDPOINT_MEET_MENTOR_LIST']!)
+              .then((value) => (value['data'] as List)
+                  .map((e) => Meet.fromJson(e))
+                  .toList());
+        }
+        if (kDebugMode) {
+          print('Number of meets loaded: ${_meets.length}');
+        }
       } catch (e) {
         event.completer?.complete(false);
         ApiHelper.handleError(e);

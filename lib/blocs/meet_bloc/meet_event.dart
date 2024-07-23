@@ -16,3 +16,9 @@ class InitializeMeetData extends MeetEvent {
 
   final Completer<bool>? completer;
 }
+
+class InitializeMentorMeetData extends MeetEvent {
+  InitializeMentorMeetData({this.completer});
+
+  final Completer<bool>? completer;
+}
