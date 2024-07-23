@@ -50,9 +50,9 @@ sealed class UserDetail with _$UserDetail {
     @JsonKey(fromJson: _parseInt) int? star,
     @JsonKey(fromJson: _parseInt) int? level,
     @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-    @JsonKey(name: 'user_id') int? userId,
+    @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
     String? username,
-    @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+    @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
   }) = Remaja;
@@ -69,7 +69,7 @@ sealed class UserDetail with _$UserDetail {
     @JsonKey(fromJson: _parseInt) int? id,
     @JsonKey(name: 'nama_lengkap') String? namaLengkap,
     String? kode,
-    @JsonKey(name: 'user_id') int? userId,
+    @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
   }) = OrangTua;
@@ -94,9 +94,9 @@ class Leaderboard with _$Leaderboard {
 class Exercise with _$Exercise {
   factory Exercise({
     @JsonKey(fromJson: _parseInt) int? id,
-    @JsonKey(name: 'remaja_id') int? remajaId,
-    @JsonKey(name: 'bagian_id') int? bagianId,
-    @JsonKey(name: 'sub_bagian_id') int? subBagianId,
+    @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
+    @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
+    @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
     @JsonKey(fromJson: _parseInt) int? nilai,
     @JsonKey(fromJson: _parseBool) bool? completed,
     @JsonKey(name: 'nama_bagian') String? namaBagian,
@@ -171,8 +171,8 @@ class Meet with _$Meet {
     DateTime? tanggal,
     String? link,
     String? materi,
-    @JsonKey(name: 'total_remaja') int? totalRemaja,
-    @JsonKey(name: 'mentor_id') int? mentorId,
+    @JsonKey(name: 'total_remaja', fromJson: _parseInt) int? totalRemaja,
+    @JsonKey(name: 'mentor_id', fromJson: _parseInt) int? mentorId,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     MeetStatus? status,
@@ -256,6 +256,12 @@ enum UserRole {
         mentor => 'Mentor',
         parent => 'Orang Tua',
       };
+
+  String get value => switch (this) {
+        remaja => 'Remaja',
+        mentor => 'Mentor',
+        parent => 'Parent',
+      };
 }
 
 enum MeetStatus {
@@ -278,6 +284,11 @@ enum ActivityType {
         tamanBelajarMingguan => 'Taman Belajar Mingguan (TBM)',
         pusatKegiatanBelajarMasyarakat => 'Pusat Kegiatan Belajar Masyarakat (PKBM)',
       };
+
+  int get id => switch (this) {
+        tamanBelajarMingguan => 1,
+        pusatKegiatanBelajarMasyarakat => 2,
+      };
 }
 
 enum EqualityPackageType {
@@ -289,5 +300,11 @@ enum EqualityPackageType {
         a => 'A',
         b => 'B',
         c => 'C',
+      };
+
+  int get id => switch (this) {
+        a => 1,
+        b => 2,
+        c => 3,
       };
 }

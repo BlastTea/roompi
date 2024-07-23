@@ -95,11 +95,15 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
             _ => 'ENDPOINT_REGISTER_REMAJA',
           }]!,
           body: {
-            event.role == UserRole.remaja ? 'username' : 'nama_lengkap': _textControllerUsernameSignUp.text.trim(),
+            (event.role == UserRole.remaja ? 'username' : 'nama_lengkap'): _textControllerUsernameSignUp.text.trim(),
             'name': _textControllerNameSignUp.text.trim(),
             'email': _textControllerEmailSignUp.text.trim(),
             'password': _textControllerPasswordSignUp.text.trim(),
-            'password_confirmation': _textControllerPasswordConfirmationSignUp.text.trim(),
+            'konfirmasi_password': _textControllerPasswordConfirmationSignUp.text.trim(),
+            // 'konfirmasi_password': _textControllerPasswordConfirmationSignUp.text.trim(),
+            if (event.role == UserRole.remaja) 'role': event.role.value,
+            if (event.role == UserRole.remaja) 'activity_id': event.activityType?.id,
+            if (event.role == UserRole.remaja) 'paket_id': event.equalityPackageType?.id,
           },
           ignoreAuthorization: true,
         );
@@ -108,6 +112,10 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
         await ApiHelper.handleError(e);
         return;
       }
+
+      if (event.activityType != null) NavigationHelper.back();
+
+      if (event.equalityPackageType != null) NavigationHelper.back();
 
       NavigationHelper.back();
       NavigationHelper.back();

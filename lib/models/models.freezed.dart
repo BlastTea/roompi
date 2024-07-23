@@ -399,9 +399,9 @@ mixin _$UserDetail {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
@@ -415,7 +415,7 @@ mixin _$UserDetail {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         orangTua,
@@ -430,9 +430,9 @@ mixin _$UserDetail {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
@@ -446,7 +446,7 @@ mixin _$UserDetail {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
@@ -461,9 +461,9 @@ mixin _$UserDetail {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
@@ -477,7 +477,7 @@ mixin _$UserDetail {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
@@ -540,9 +540,9 @@ abstract class _$$RemajaImplCopyWith<$Res> {
       @JsonKey(fromJson: _parseInt) int? star,
       @JsonKey(fromJson: _parseInt) int? level,
       @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-      @JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
       String? username,
-      @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+      @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
@@ -629,9 +629,9 @@ class _$RemajaImpl implements Remaja {
       @JsonKey(fromJson: _parseInt) this.star,
       @JsonKey(fromJson: _parseInt) this.level,
       @JsonKey(name: 'kode_orang_tua') this.kodeOrangTua,
-      @JsonKey(name: 'user_id') this.userId,
+      @JsonKey(name: 'user_id', fromJson: _parseInt) this.userId,
       this.username,
-      @JsonKey(name: 'orang_tua_id') this.orangTuaId,
+      @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) this.orangTuaId,
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       final String? $type})
@@ -659,12 +659,12 @@ class _$RemajaImpl implements Remaja {
   @JsonKey(name: 'kode_orang_tua')
   String? kodeOrangTua;
   @override
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _parseInt)
   int? userId;
   @override
   String? username;
   @override
-  @JsonKey(name: 'orang_tua_id')
+  @JsonKey(name: 'orang_tua_id', fromJson: _parseInt)
   int? orangTuaId;
   @override
   @JsonKey(name: 'created_at')
@@ -697,9 +697,9 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
@@ -713,7 +713,7 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         orangTua,
@@ -732,9 +732,9 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
@@ -748,7 +748,7 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
@@ -767,9 +767,9 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
@@ -783,7 +783,7 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
@@ -846,9 +846,9 @@ abstract class Remaja implements UserDetail {
       @JsonKey(fromJson: _parseInt) int? star,
       @JsonKey(fromJson: _parseInt) int? level,
       @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-      @JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
       String? username,
-      @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+      @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt}) = _$RemajaImpl;
 
@@ -878,15 +878,15 @@ abstract class Remaja implements UserDetail {
   String? get kodeOrangTua;
   @JsonKey(name: 'kode_orang_tua')
   set kodeOrangTua(String? value);
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _parseInt)
   int? get userId;
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _parseInt)
   set userId(int? value);
   String? get username;
   set username(String? value);
-  @JsonKey(name: 'orang_tua_id')
+  @JsonKey(name: 'orang_tua_id', fromJson: _parseInt)
   int? get orangTuaId;
-  @JsonKey(name: 'orang_tua_id')
+  @JsonKey(name: 'orang_tua_id', fromJson: _parseInt)
   set orangTuaId(int? value);
   @JsonKey(name: 'created_at')
   DateTime? get createdAt;
@@ -993,9 +993,9 @@ class _$MentorImpl implements Mentor {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
@@ -1009,7 +1009,7 @@ class _$MentorImpl implements Mentor {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         orangTua,
@@ -1027,9 +1027,9 @@ class _$MentorImpl implements Mentor {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
@@ -1043,7 +1043,7 @@ class _$MentorImpl implements Mentor {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
@@ -1061,9 +1061,9 @@ class _$MentorImpl implements Mentor {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
@@ -1077,7 +1077,7 @@ class _$MentorImpl implements Mentor {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
@@ -1165,7 +1165,7 @@ abstract class _$$OrangTuaImplCopyWith<$Res> {
       {@JsonKey(fromJson: _parseInt) int? id,
       @JsonKey(name: 'nama_lengkap') String? namaLengkap,
       String? kode,
-      @JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
@@ -1224,7 +1224,7 @@ class _$OrangTuaImpl implements OrangTua {
       {@JsonKey(fromJson: _parseInt) this.id,
       @JsonKey(name: 'nama_lengkap') this.namaLengkap,
       this.kode,
-      @JsonKey(name: 'user_id') this.userId,
+      @JsonKey(name: 'user_id', fromJson: _parseInt) this.userId,
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       final String? $type})
@@ -1242,7 +1242,7 @@ class _$OrangTuaImpl implements OrangTua {
   @override
   String? kode;
   @override
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _parseInt)
   int? userId;
   @override
   @JsonKey(name: 'created_at')
@@ -1275,9 +1275,9 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
@@ -1291,7 +1291,7 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         orangTua,
@@ -1309,9 +1309,9 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
@@ -1325,7 +1325,7 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
@@ -1343,9 +1343,9 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(fromJson: _parseInt) int? star,
             @JsonKey(fromJson: _parseInt) int? level,
             @JsonKey(name: 'kode_orang_tua') String? kodeOrangTua,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             String? username,
-            @JsonKey(name: 'orang_tua_id') int? orangTuaId,
+            @JsonKey(name: 'orang_tua_id', fromJson: _parseInt) int? orangTuaId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
@@ -1359,7 +1359,7 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(fromJson: _parseInt) int? id,
             @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? kode,
-            @JsonKey(name: 'user_id') int? userId,
+            @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
             @JsonKey(name: 'created_at') DateTime? createdAt,
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
@@ -1418,7 +1418,7 @@ abstract class OrangTua implements UserDetail {
       {@JsonKey(fromJson: _parseInt) int? id,
       @JsonKey(name: 'nama_lengkap') String? namaLengkap,
       String? kode,
-      @JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'user_id', fromJson: _parseInt) int? userId,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt}) = _$OrangTuaImpl;
 
@@ -1435,9 +1435,9 @@ abstract class OrangTua implements UserDetail {
   set namaLengkap(String? value);
   String? get kode;
   set kode(String? value);
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _parseInt)
   int? get userId;
-  @JsonKey(name: 'user_id')
+  @JsonKey(name: 'user_id', fromJson: _parseInt)
   set userId(int? value);
   @JsonKey(name: 'created_at')
   DateTime? get createdAt;
@@ -1689,11 +1689,11 @@ Exercise _$ExerciseFromJson(Map<String, dynamic> json) {
 mixin _$Exercise {
   @JsonKey(fromJson: _parseInt)
   int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'remaja_id')
+  @JsonKey(name: 'remaja_id', fromJson: _parseInt)
   int? get remajaId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'bagian_id')
+  @JsonKey(name: 'bagian_id', fromJson: _parseInt)
   int? get bagianId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'sub_bagian_id')
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
   int? get subBagianId => throw _privateConstructorUsedError;
   @JsonKey(fromJson: _parseInt)
   int? get nilai => throw _privateConstructorUsedError;
@@ -1717,9 +1717,9 @@ abstract class $ExerciseCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(fromJson: _parseInt) int? id,
-      @JsonKey(name: 'remaja_id') int? remajaId,
-      @JsonKey(name: 'bagian_id') int? bagianId,
-      @JsonKey(name: 'sub_bagian_id') int? subBagianId,
+      @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
+      @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
       @JsonKey(fromJson: _parseInt) int? nilai,
       @JsonKey(fromJson: _parseBool) bool? completed,
       @JsonKey(name: 'nama_bagian') String? namaBagian,
@@ -1795,9 +1795,9 @@ abstract class _$$ExerciseImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(fromJson: _parseInt) int? id,
-      @JsonKey(name: 'remaja_id') int? remajaId,
-      @JsonKey(name: 'bagian_id') int? bagianId,
-      @JsonKey(name: 'sub_bagian_id') int? subBagianId,
+      @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
+      @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
       @JsonKey(fromJson: _parseInt) int? nilai,
       @JsonKey(fromJson: _parseBool) bool? completed,
       @JsonKey(name: 'nama_bagian') String? namaBagian,
@@ -1866,9 +1866,9 @@ class __$$ExerciseImplCopyWithImpl<$Res>
 class _$ExerciseImpl implements _Exercise {
   _$ExerciseImpl(
       {@JsonKey(fromJson: _parseInt) this.id,
-      @JsonKey(name: 'remaja_id') this.remajaId,
-      @JsonKey(name: 'bagian_id') this.bagianId,
-      @JsonKey(name: 'sub_bagian_id') this.subBagianId,
+      @JsonKey(name: 'remaja_id', fromJson: _parseInt) this.remajaId,
+      @JsonKey(name: 'bagian_id', fromJson: _parseInt) this.bagianId,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) this.subBagianId,
       @JsonKey(fromJson: _parseInt) this.nilai,
       @JsonKey(fromJson: _parseBool) this.completed,
       @JsonKey(name: 'nama_bagian') this.namaBagian,
@@ -1881,13 +1881,13 @@ class _$ExerciseImpl implements _Exercise {
   @JsonKey(fromJson: _parseInt)
   final int? id;
   @override
-  @JsonKey(name: 'remaja_id')
+  @JsonKey(name: 'remaja_id', fromJson: _parseInt)
   final int? remajaId;
   @override
-  @JsonKey(name: 'bagian_id')
+  @JsonKey(name: 'bagian_id', fromJson: _parseInt)
   final int? bagianId;
   @override
-  @JsonKey(name: 'sub_bagian_id')
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
   final int? subBagianId;
   @override
   @JsonKey(fromJson: _parseInt)
@@ -1950,9 +1950,10 @@ class _$ExerciseImpl implements _Exercise {
 abstract class _Exercise implements Exercise {
   factory _Exercise(
           {@JsonKey(fromJson: _parseInt) final int? id,
-          @JsonKey(name: 'remaja_id') final int? remajaId,
-          @JsonKey(name: 'bagian_id') final int? bagianId,
-          @JsonKey(name: 'sub_bagian_id') final int? subBagianId,
+          @JsonKey(name: 'remaja_id', fromJson: _parseInt) final int? remajaId,
+          @JsonKey(name: 'bagian_id', fromJson: _parseInt) final int? bagianId,
+          @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+          final int? subBagianId,
           @JsonKey(fromJson: _parseInt) final int? nilai,
           @JsonKey(fromJson: _parseBool) final bool? completed,
           @JsonKey(name: 'nama_bagian') final String? namaBagian,
@@ -1966,13 +1967,13 @@ abstract class _Exercise implements Exercise {
   @JsonKey(fromJson: _parseInt)
   int? get id;
   @override
-  @JsonKey(name: 'remaja_id')
+  @JsonKey(name: 'remaja_id', fromJson: _parseInt)
   int? get remajaId;
   @override
-  @JsonKey(name: 'bagian_id')
+  @JsonKey(name: 'bagian_id', fromJson: _parseInt)
   int? get bagianId;
   @override
-  @JsonKey(name: 'sub_bagian_id')
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
   int? get subBagianId;
   @override
   @JsonKey(fromJson: _parseInt)
@@ -3012,9 +3013,9 @@ mixin _$Meet {
   DateTime? get tanggal => throw _privateConstructorUsedError;
   String? get link => throw _privateConstructorUsedError;
   String? get materi => throw _privateConstructorUsedError;
-  @JsonKey(name: 'total_remaja')
+  @JsonKey(name: 'total_remaja', fromJson: _parseInt)
   int? get totalRemaja => throw _privateConstructorUsedError;
-  @JsonKey(name: 'mentor_id')
+  @JsonKey(name: 'mentor_id', fromJson: _parseInt)
   int? get mentorId => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -3047,8 +3048,8 @@ abstract class $MeetCopyWith<$Res> {
       DateTime? tanggal,
       String? link,
       String? materi,
-      @JsonKey(name: 'total_remaja') int? totalRemaja,
-      @JsonKey(name: 'mentor_id') int? mentorId,
+      @JsonKey(name: 'total_remaja', fromJson: _parseInt) int? totalRemaja,
+      @JsonKey(name: 'mentor_id', fromJson: _parseInt) int? mentorId,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       MeetStatus? status,
@@ -3179,8 +3180,8 @@ abstract class _$$MeetImplCopyWith<$Res> implements $MeetCopyWith<$Res> {
       DateTime? tanggal,
       String? link,
       String? materi,
-      @JsonKey(name: 'total_remaja') int? totalRemaja,
-      @JsonKey(name: 'mentor_id') int? mentorId,
+      @JsonKey(name: 'total_remaja', fromJson: _parseInt) int? totalRemaja,
+      @JsonKey(name: 'mentor_id', fromJson: _parseInt) int? mentorId,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       MeetStatus? status,
@@ -3304,8 +3305,8 @@ class _$MeetImpl implements _Meet {
       this.tanggal,
       this.link,
       this.materi,
-      @JsonKey(name: 'total_remaja') this.totalRemaja,
-      @JsonKey(name: 'mentor_id') this.mentorId,
+      @JsonKey(name: 'total_remaja', fromJson: _parseInt) this.totalRemaja,
+      @JsonKey(name: 'mentor_id', fromJson: _parseInt) this.mentorId,
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       this.status,
@@ -3338,10 +3339,10 @@ class _$MeetImpl implements _Meet {
   @override
   final String? materi;
   @override
-  @JsonKey(name: 'total_remaja')
+  @JsonKey(name: 'total_remaja', fromJson: _parseInt)
   final int? totalRemaja;
   @override
-  @JsonKey(name: 'mentor_id')
+  @JsonKey(name: 'mentor_id', fromJson: _parseInt)
   final int? mentorId;
   @override
   @JsonKey(name: 'created_at')
@@ -3447,8 +3448,9 @@ abstract class _Meet implements Meet {
       final DateTime? tanggal,
       final String? link,
       final String? materi,
-      @JsonKey(name: 'total_remaja') final int? totalRemaja,
-      @JsonKey(name: 'mentor_id') final int? mentorId,
+      @JsonKey(name: 'total_remaja', fromJson: _parseInt)
+      final int? totalRemaja,
+      @JsonKey(name: 'mentor_id', fromJson: _parseInt) final int? mentorId,
       @JsonKey(name: 'created_at') final DateTime? createdAt,
       @JsonKey(name: 'updated_at') final DateTime? updatedAt,
       final MeetStatus? status,
@@ -3480,10 +3482,10 @@ abstract class _Meet implements Meet {
   @override
   String? get materi;
   @override
-  @JsonKey(name: 'total_remaja')
+  @JsonKey(name: 'total_remaja', fromJson: _parseInt)
   int? get totalRemaja;
   @override
-  @JsonKey(name: 'mentor_id')
+  @JsonKey(name: 'mentor_id', fromJson: _parseInt)
   int? get mentorId;
   @override
   @JsonKey(name: 'created_at')

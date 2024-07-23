@@ -52,9 +52,9 @@ _$RemajaImpl _$$RemajaImplFromJson(Map<String, dynamic> json) => _$RemajaImpl(
       star: _parseInt(json['star']),
       level: _parseInt(json['level']),
       kodeOrangTua: json['kode_orang_tua'] as String?,
-      userId: (json['user_id'] as num?)?.toInt(),
+      userId: _parseInt(json['user_id']),
       username: json['username'] as String?,
-      orangTuaId: (json['orang_tua_id'] as num?)?.toInt(),
+      orangTuaId: _parseInt(json['orang_tua_id']),
       createdAt: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),
@@ -100,7 +100,7 @@ _$OrangTuaImpl _$$OrangTuaImplFromJson(Map<String, dynamic> json) =>
       id: _parseInt(json['id']),
       namaLengkap: json['nama_lengkap'] as String?,
       kode: json['kode'] as String?,
-      userId: (json['user_id'] as num?)?.toInt(),
+      userId: _parseInt(json['user_id']),
       createdAt: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),
@@ -142,9 +142,9 @@ Map<String, dynamic> _$$LeaderboardImplToJson(_$LeaderboardImpl instance) =>
 _$ExerciseImpl _$$ExerciseImplFromJson(Map<String, dynamic> json) =>
     _$ExerciseImpl(
       id: _parseInt(json['id']),
-      remajaId: (json['remaja_id'] as num?)?.toInt(),
-      bagianId: (json['bagian_id'] as num?)?.toInt(),
-      subBagianId: (json['sub_bagian_id'] as num?)?.toInt(),
+      remajaId: _parseInt(json['remaja_id']),
+      bagianId: _parseInt(json['bagian_id']),
+      subBagianId: _parseInt(json['sub_bagian_id']),
       nilai: _parseInt(json['nilai']),
       completed: _parseBool(json['completed']),
       namaBagian: json['nama_bagian'] as String?,
@@ -267,8 +267,8 @@ _$MeetImpl _$$MeetImplFromJson(Map<String, dynamic> json) => _$MeetImpl(
           : DateTime.parse(json['tanggal'] as String),
       link: json['link'] as String?,
       materi: json['materi'] as String?,
-      totalRemaja: (json['total_remaja'] as num?)?.toInt(),
-      mentorId: (json['mentor_id'] as num?)?.toInt(),
+      totalRemaja: _parseInt(json['total_remaja']),
+      mentorId: _parseInt(json['mentor_id']),
       createdAt: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),

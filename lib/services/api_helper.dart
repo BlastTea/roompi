@@ -44,7 +44,7 @@ final class ApiHelper {
     dynamic responseString = !decode ? await response.stream.toBytes() : await response.stream.bytesToString();
     if (response.statusCode != 200) {
       // debugPrint('(http response) : $method ${request.url} ${request.headers} $body => $responseString');
-      debugPrint('(http response) : $method ${request.url} ${request.headers} => $responseString');
+      debugPrint('(http response) ${response.statusCode} : $method ${request.url} ${request.headers} => $responseString');
       throw {
         'data': json.decode(responseString),
         'status_code': response.statusCode,
@@ -53,12 +53,12 @@ final class ApiHelper {
 
     if (!decode) {
       // debugPrint('(http response) : $method ${request.url} ${request.headers} $body => $responseString');
-      debugPrint('(http response) : $method ${request.url} ${request.headers} => $responseString');
+      debugPrint('(http response) ${response.statusCode} : $method ${request.url} ${request.headers} => $responseString');
       return responseString;
     }
 
     // debugPrint('(http response) : $method ${request.url} ${request.headers} $body => $responseString');
-    debugPrint('(http response) : $method ${request.url} ${request.headers} => $responseString');
+    debugPrint('(http response) ${response.statusCode} : $method ${request.url} ${request.headers} => $responseString');
     return json.decode(responseString);
   }
 
@@ -177,7 +177,11 @@ final class ApiHelper {
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
     await sharedPref.setString(keyToken, response['token']);
 
-    response['data']['detail']['role'] = response['data']['role'];
+    if (response['data']['detail'] == null) {
+      response['data']['detail'] = {'role': response['data']['role']};
+    } else {
+      response['data']['detail']['role'] = response['data']['role'];
+    }
 
     await _refreshCurrentUser(response);
   }
@@ -249,7 +253,7 @@ final class ApiHelper {
 
       if (e['data']['message'] == 'Harap masukkan password lama yang sesuai!') return showErrorDialog('Password lama tidak sesuai');
 
-      if (e['data']['message'] != null && e['data']['message'] != 'Unauthenticated.') return showErrorDialog(e['data']['message']);
+      if ((e['data']['message'] != null || e['data']['errors'] != null) && e['data']['message'] != 'Unauthenticated.') return showErrorDialog((e['data']['message'] ?? e['data']['errors']).toString());
 
       while (NavigationHelper.canGoBack()) {
         NavigationHelper.back();
