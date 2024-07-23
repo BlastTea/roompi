@@ -199,6 +199,7 @@ class _StoreMeetPageState extends State<StoreMeetPage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16.0, vertical: 10.0),
                     child: TextField(
+                      keyboardType: TextInputType.number,
                       controller: state.textControllerParticipantCountMeet,
                       decoration: const InputDecoration(
                           labelText: 'Total Remaja',

@@ -201,7 +201,14 @@ class MeetFragment extends StatelessWidget {
                                                   ),
                                                   FilledButton(
                                                     onPressed: () {
-
+                                                      if (meet.status ==
+                                                          MeetStatus
+                                                              .belumDipublish) {
+                                                        MyApp.meetBloc.add(
+                                                            PublishMeetPressed(
+                                                                meet.id
+                                                                    .toString()));
+                                                      }
                                                     },
                                                     style:
                                                         FilledButton.styleFrom(

@@ -35,6 +35,19 @@ class MeetBloc extends Bloc<MeetEvent, MeetState> {
       event.completer?.complete(true);
       emit(_meetDataLoaded);
     });
+
+    on<PublishMeetPressed>((event, emit) async {
+      try {
+        await ApiHelper.post(
+          pathUrl:
+              '${dotenv.env['ENDPOINT_MEET_MENTOR_PUBLISH']}/${event.meetId}',
+        );
+      } catch (e) {
+        NavigationHelper.back();
+        await ApiHelper.handleError(e);
+        return;
+      }
+    });
   }
 
   List<Meet> _meets = [];

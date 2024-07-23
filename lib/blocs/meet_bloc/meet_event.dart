@@ -22,3 +22,9 @@ class InitializeMentorMeetData extends MeetEvent {
 
   final Completer<bool>? completer;
 }
+
+class PublishMeetPressed extends MeetEvent {
+  final String meetId;
+
+  PublishMeetPressed(this.meetId);
+}

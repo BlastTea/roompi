@@ -36,11 +36,10 @@ class StoreMeetSuccessFulPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: MyFilledButton(
                 onPressed: () {
-                  NavigationHelper.back();
-                  NavigationHelper.to(SlidePageRoute(
-                      pageBuilder: (context) => const HomeFragment()));
+                  NavigationHelper.toReplacement(SlidePageRoute(
+                      pageBuilder: (context) => HomePage(key: homePageKey)));
                 },
-                child: const Text('Login'),
+                child: const Text('Kembali'),
               ),
             ),
           ],
