@@ -35,8 +35,6 @@ class MeetBloc extends Bloc<MeetEvent, MeetState> {
       event.completer?.complete(true);
       emit(_meetDataLoaded);
     });
-
-    
   }
 
   List<Meet> _meets = [];

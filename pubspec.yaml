@@ -27,10 +27,10 @@ dependencies:
   shared_preferences: ^2.2.3
   url_launcher: ^6.3.0
   flutter_native_splash: ^2.4.1
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   build_runner: ^2.4.11
-  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
@@ -60,4 +60,4 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/images/Logo Aplikasi ROOMPI.png"
+  image_path: "assets/images/launcher.png"

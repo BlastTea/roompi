@@ -69,6 +69,7 @@ class MyApp extends StatelessWidget {
   static EditProfileBloc editProfileBloc = EditProfileBloc();
   static ChatbotBloc chatbotBloc = ChatbotBloc();
   static ChangePasswordBloc changePasswordBloc = ChangePasswordBloc();
+  static MentorMeetBloc mentorMeetBloc = MentorMeetBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +84,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => editProfileBloc),
         BlocProvider(create: (context) => chatbotBloc),
         BlocProvider(create: (context) => changePasswordBloc),
+        BlocProvider(create: (context) => mentorMeetBloc),
       ],
       child: RoompiMaterialApp(
         title: 'ROOOMPI',

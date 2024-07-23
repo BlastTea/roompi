@@ -10,6 +10,7 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:roompi/models/models.dart';
 import 'package:roompi/services/services.dart';
 import 'package:roompi/utils/utils.dart';
+import 'package:roompi/views/fragments/fragments.dart';
 import 'package:roompi/views/pages/pages.dart';
 import 'package:m_widget/m_widget.dart';
 import 'package:http/http.dart' as http;
@@ -46,3 +47,7 @@ part 'chatbot_bloc/chatbot_state.dart';
 part 'change_password_bloc/change_password_bloc.dart';
 part 'change_password_bloc/change_password_event.dart';
 part 'change_password_bloc/change_password_state.dart';
+
+part 'mentor_meet_bloc/mentor_meet_bloc.dart';
+part 'mentor_meet_bloc/mentor_meet_event.dart';
+part 'mentor_meet_bloc/mentor_meet_state.dart';

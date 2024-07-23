@@ -11,5 +11,4 @@ class MeetDataLoaded extends MeetState {
   MeetDataLoaded({required this.meets});
 
   final List<Meet> meets;
-  // final List<MentorMeet> mentorMeets;
 }
