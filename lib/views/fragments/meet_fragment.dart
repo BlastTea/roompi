@@ -7,50 +7,90 @@ class MeetFragment extends StatelessWidget {
   Widget build(BuildContext context) => BlocBuilder<MeetBloc, MeetState>(
         builder: (context, stateMeet) {
           if (stateMeet is MeetDataLoaded) {
-            return Scaffold(
-              appBar: AppBar(
-                title: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'List Kelas Tersedia',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    Text(
-                      'Yuk, ikuti meet bersama mentor',
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: Theme.of(context).colorScheme.secondary),
-                    )
-                  ],
-                ),
-              ),
-              body: RefreshIndicator(
-                onRefresh: () {
-                  Completer<bool> completer = Completer();
-                  MyApp.meetBloc.add(InitializeMeetData(completer: completer));
-                  return completer.future;
-                },
-                child: CustomScrollView(
-                  slivers: [
-                    const SliverToBoxAdapter(child: SizedBox(height: 15),),
-                    SliverPadding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      sliver: SliverList.builder(
-                        itemBuilder: (context, index) {
-                          Meet meet = stateMeet.meets[index];
-
-                          return buildMeetList(
-                            context: context,
-                            meet: meet,
-                          );
-                        },
-                        itemCount: stateMeet.meets.length,
+            return currentUser?.role == UserRole.remaja
+                ? Scaffold(
+                    appBar: AppBar(
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'List Kelas Tersedia',
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          Text(
+                            'Yuk, ikuti meet bersama mentor',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                          )
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ),
-            );
+                    body: RefreshIndicator(
+                      onRefresh: () {
+                        Completer<bool> completer = Completer();
+                        MyApp.meetBloc
+                            .add(InitializeMeetData(completer: completer));
+                        return completer.future;
+                      },
+                      child: CustomScrollView(
+                        slivers: [
+                          const SliverToBoxAdapter(
+                            child: SizedBox(height: 15),
+                          ),
+                          SliverPadding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            sliver: SliverList.builder(
+                              itemBuilder: (context, index) {
+                                Meet meet = stateMeet.meets[index];
+
+                                return buildMeetList(
+                                  context: context,
+                                  meet: meet,
+                                );
+                              },
+                              itemCount: stateMeet.meets.length,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                : Scaffold(
+                    appBar: AppBar(
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'List Kelas Tersedia',
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          Text(
+                            'Yuk, ikuti meet bersama mentor',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                          )
+                        ],
+                      ),
+                    ),
+                    floatingActionButton: FloatingActionButton(
+                      onPressed: () => NavigationHelper.to(SlidePageRoute(
+                          pageBuilder: (context) => const StoreMeetPage())),
+                      foregroundColor: kColorWhite,
+                      backgroundColor: kColorPrimary,
+                      child: const Icon(Icons.add),
+                    ),
+                  );
           } else if (stateMeet is MeetError) {
             return SafeArea(
               child: ErrorOccuredButton(

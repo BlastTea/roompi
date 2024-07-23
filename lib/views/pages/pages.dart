@@ -27,6 +27,7 @@ part 'leaderboard_page.dart';
 part 'edit_profile_page.dart';
 part 'change_password_page.dart';
 part 'chatbot_page.dart';
+part 'store_meet_page.dart';
 
 part 'on_boarding_page.dart';
 

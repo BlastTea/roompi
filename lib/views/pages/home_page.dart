@@ -94,6 +94,8 @@ class HomePageState extends State<HomePage> {
             const HomeFragment(),
             if (currentUser?.role == UserRole.remaja)
               const ExerciseFragment()
+            else if (currentUser?.role == UserRole.mentor)
+              const MeetFragment()
             else
               const HistoryExerciseFragment(),
             if (currentUser?.role == UserRole.remaja) const MeetFragment(),
@@ -127,18 +129,28 @@ class HomePageState extends State<HomePage> {
                 ),
                 MyNavigationDestination(
                   selectedIcon: SvgPicture.asset(
-                    'assets/svgs/exercise_selected.svg',
+                    currentUser?.role == UserRole.remaja
+                        ? 'assets/svgs/exercise_selected.svg'
+                        : currentUser?.role == UserRole.parent
+                            ? 'assets/svgs/exercise_selected.svg'
+                            : 'assets/svgs/meet_selected.svg',
                     width: 30.0,
                     height: 30.0,
                   ),
                   icon: SvgPicture.asset(
-                    'assets/svgs/exercise_unselected.svg',
+                    currentUser?.role == UserRole.remaja
+                        ? 'assets/svgs/exercise_unselected.svg'
+                        : currentUser?.role == UserRole.parent
+                            ? 'assets/svgs/exercise_unselected.svg'
+                            : 'assets/svgs/meet_unselected.svg',
                     width: 30.0,
                     height: 30.0,
                   ),
                   label: currentUser?.role == UserRole.remaja
                       ? 'Latihan'
-                      : 'Laporan',
+                      : currentUser?.role == UserRole.parent
+                          ? 'Laporan'
+                          : 'Meet',
                 ),
                 if (currentUser?.role == UserRole.remaja)
                   MyNavigationDestination(
