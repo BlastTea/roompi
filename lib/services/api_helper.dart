@@ -249,6 +249,8 @@ final class ApiHelper {
 
       if (e['data']['message'] == 'Harap masukkan password lama yang sesuai!') return showErrorDialog('Password lama tidak sesuai');
 
+      if (e['data']['message'] != null && e['data']['message'] != 'Unauthenticated.') return showErrorDialog(e['data']['message']);
+
       while (NavigationHelper.canGoBack()) {
         NavigationHelper.back();
       }
