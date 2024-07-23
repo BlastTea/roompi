@@ -46,6 +46,15 @@ flutter:
     - family: FeatherBold
       fonts:
         - asset: assets/fonts/FeatherBold/FeatherBold.ttf
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/Rubik/Rubik.ttf
+        - asset: assets/fonts/Rubik/Rubik-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/Rubik/Rubik-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Rubik/Rubik-Medium.ttf
+          weight: 400
 
 flutter_launcher_icons:
   android: true

@@ -13,17 +13,36 @@ class _SignUpSelectRolePageState extends State<SignUpSelectRolePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
+          titleSpacing: 0,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new_outlined,
+              color: Theme.of(context).colorScheme.primary,
+              size: 20,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
           title: Text(
-            'Mau daftar sebagai apa?',
+            'Mulai mendaftar',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          centerTitle: true,
-          automaticallyImplyLeading: false,
         ),
         body: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 5.0),
           children: [
-            const SizedBox(height: 16.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text('Bergabung dengan Roompi', style: Theme.of(context).textTheme.titleLarge),
+            ),
+            const SizedBox(height: 3.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                'Anda bisa mendaftar sebagai pelajar atau orang tua!',
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).colorScheme.secondary),
+              ),
+            ),
+            const SizedBox(height: 10.0),
             ...[
               UserRole.remaja,
               UserRole.parent,
@@ -31,8 +50,19 @@ class _SignUpSelectRolePageState extends State<SignUpSelectRolePage> {
               (e) => RadioListTile(
                 value: e,
                 groupValue: _selectedValue,
-                title: Text(e.text),
-                secondary: const Icon(Icons.person),
+                title: Text(
+                  e.text,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                secondary: e.text == 'Pelajar'
+                    ? const Icon(
+                        Icons.person_3_outlined,
+                        size: 30,
+                      )
+                    : const Icon(
+                        Icons.person_4_outlined,
+                        size: 30,
+                      ),
                 controlAffinity: ListTileControlAffinity.trailing,
                 onChanged: (value) => setState(() => _selectedValue = value),
               ),
@@ -42,7 +72,7 @@ class _SignUpSelectRolePageState extends State<SignUpSelectRolePage> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(16.0),
           child: MyFilledButton(
-            onPressed: _selectedValue == null ? null : () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => _selectedValue == UserRole.parent ? SignUpPage(selectedRole: _selectedValue!) : const SignUpSelectActivityTypePage())),
+            onPressed: _selectedValue == null ? null : () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => SignUpPage(selectedRole: _selectedValue!))),
             child: const Text('Lanjutkan'),
           ),
         ),

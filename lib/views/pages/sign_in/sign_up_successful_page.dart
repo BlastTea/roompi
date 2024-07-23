@@ -10,17 +10,25 @@ class SignUpSuccessfulPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset('assets/svgs/green checkmark.svg'),
-              const SizedBox(height: 48.0),
+              Image.asset('assets/images/success_auth.png'),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  'Berhasil membuat akun',
+                  'Selamat!',
                   style: Theme.of(context).textTheme.headlineLarge,
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(height: 48.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  'Akun Anda berhasil dibuat! Yuk, mulai jelajahi Roompi lebih dalam!',
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(height: 20.0),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: MyFilledButton(

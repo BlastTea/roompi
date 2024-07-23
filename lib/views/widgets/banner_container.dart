@@ -16,7 +16,7 @@ class BannerContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         decoration: const BoxDecoration(
           color: kColorPrimary,
           borderRadius: kBorderRadiusBanner,

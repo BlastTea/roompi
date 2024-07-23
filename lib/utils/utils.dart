@@ -5,14 +5,16 @@ import 'package:roompi/views/pages/pages.dart';
 
 part 'page_route.dart';
 
-const kFontFamily = 'FeatherBold';
+const kFontFamily = 'Rubik';
+const kColorTextBase = Color(0xFF51563D);
 
 const kColorSurface = Color(0xFFFFFFFF);
 const kColorPrimary = Color(0xFF00B351);
 const kColorSelected = Color(0xFFD4718D);
 const kColorBorder = Color(0xFF288303);
 const kColorDivider = kColorBorder;
-const kColorTonalBorder = kColorBorder;
+const kColorSecondary = Color(0xFF8B8F7E);
+const kColorTonalBorder = kColorPrimary;
 const kColorTonalBorderSelected = Color(0xFFB74969);
 const kColorBannerBackground = Color(0xFFFEF3E7);
 

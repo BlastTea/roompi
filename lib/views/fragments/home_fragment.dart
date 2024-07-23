@@ -6,7 +6,8 @@ class HomeFragment extends StatelessWidget {
   @override
   Widget build(BuildContext context) => CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: MediaQuery.viewPaddingOf(context).top)),
+          SliverToBoxAdapter(
+              child: SizedBox(height: MediaQuery.viewPaddingOf(context).top)),
           const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -14,18 +15,6 @@ class HomeFragment extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // IgnorePointer(
-                  //   child: MyFilledButton.circle(
-                  //     radius: 40.0,
-                  //     padding: EdgeInsets.zero,
-                  //     pressedBottomBorderWidth: 0.0,
-                  //     onPressed: () {},
-                  //     image: DecorationImage(
-                  //       image: CachedNetworkImageProvider(currentUser?.foto ?? ''),
-                  //       fit: BoxFit.cover,
-                  //     ),
-                  //   ),
-                  // ),
                   ImageContainer.hero(
                     tag: 'home profile',
                     width: 40.0,
@@ -53,7 +42,10 @@ class HomeFragment extends StatelessWidget {
                     )
                   else ...[
                     const SizedBox(width: 16.0),
-                    Expanded(child: Text('Selamat datang, ${currentUser?.name ?? 'Guest'}! 👋', style: Theme.of(context).textTheme.titleLarge)),
+                    Expanded(
+                        child: Text(
+                            'Selamat datang, ${currentUser?.name ?? 'Guest'}! 👋',
+                            style: Theme.of(context).textTheme.titleLarge)),
                   ],
                 ],
               ),
@@ -64,7 +56,9 @@ class HomeFragment extends StatelessWidget {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
-                child: Text('Selamat datang, ${currentUser?.name ?? 'Guest'}! 👋', style: Theme.of(context).textTheme.titleLarge),
+                child: Text(
+                    'Selamat datang, ${currentUser?.name ?? 'Guest'}! 👋',
+                    style: Theme.of(context).textTheme.titleLarge),
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
@@ -73,14 +67,21 @@ class HomeFragment extends StatelessWidget {
               sliver: SliverToBoxAdapter(
                 child: BannerContainer(
                   title: const Text('Chat dengan AI'),
-                  subtitle: const Text('Tingkatkan kemampuan bahasa Inggris Anda dengan teknologi AI!'),
+                  subtitle: Text(
+                      'Tingkatkan pengetahuan Anda dengan bertanya ke AI secara efektif!',
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: kColorWhite)),
                   actions: [
                     TextButton(
-                      onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const ChatbotPage())),
+                      onPressed: () => NavigationHelper.to(SlidePageRoute(
+                          pageBuilder: (context) => const ChatbotPage())),
                       style: TextButton.styleFrom(padding: EdgeInsets.zero),
                       child: Text(
                         'Chat Sekarang',
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorWhite),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(color: kColorWhite),
                       ),
                     ),
                     const SizedBox(width: 8.0),
@@ -90,7 +91,7 @@ class HomeFragment extends StatelessWidget {
                       size: 17.0,
                     )
                   ],
-                  image: Image.asset('assets/images/Meetup Icon.png'),
+                  image: Image.asset('assets/images/hero-img.png'),
                 ),
               ),
             ),
@@ -102,13 +103,17 @@ class HomeFragment extends StatelessWidget {
                   children: [
                     Flexible(
                       child: MyFilledButton.tonal(
-                        onPressed: () => homePageKey.currentState?.setSelectedIndex(1),
-                        icon: SvgPicture.asset('assets/svgs/exercise.svg'),
-                        textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: kColorWhite),
-                        padding: const EdgeInsets.all(8.0),
+                        onPressed: () =>
+                            homePageKey.currentState?.setSelectedIndex(1),
+                        icon: SvgPicture.asset('assets/svgs/exercise.svg', height: 25, width: 25,),
+                        textStyle: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(color: kColorWhite),
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
                         backgroundColor: kColorPrimary,
                         borderColor: kColorBorder,
-                        minHorizontalPadding: 8.0,
+                        minHorizontalPadding: 5.0,
                         pressedBottomBorderWidth: 0.0,
                         bottomBorderOnly: true,
                         child: const Text('Latihan'),
@@ -117,10 +122,14 @@ class HomeFragment extends StatelessWidget {
                     const SizedBox(width: 16.0),
                     Flexible(
                       child: MyFilledButton.tonal(
-                        onPressed: () => homePageKey.currentState?.setSelectedIndex(2),
-                        icon: SvgPicture.asset('assets/svgs/meet.svg'),
-                        textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(color: kColorWhite),
-                        padding: const EdgeInsets.all(8.0),
+                        onPressed: () =>
+                            homePageKey.currentState?.setSelectedIndex(2),
+                        icon: SvgPicture.asset('assets/svgs/meet.svg', height: 25, width: 25,),
+                        textStyle: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(color: kColorWhite),
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
                         backgroundColor: kColorPrimary,
                         borderColor: kColorBorder,
                         minHorizontalPadding: 8.0,
@@ -137,7 +146,8 @@ class HomeFragment extends StatelessWidget {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
-                child: Text('Cek Leaderboard', style: Theme.of(context).textTheme.headlineMedium),
+                child: Text('Cek Leaderboard',
+                    style: Theme.of(context).textTheme.headlineSmall),
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
@@ -145,16 +155,17 @@ class HomeFragment extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
                 child: MyFilledButton.tonal(
-                  onPressed: () => NavigationHelper.to(SlidePageRoute(pageBuilder: (context) => const LeaderboardPage())),
-                  icon: SvgPicture.asset('assets/svgs/chest.svg'),
+                  onPressed: () => NavigationHelper.to(SlidePageRoute(
+                      pageBuilder: (context) => const LeaderboardPage())),
+                  // icon: SvgPicture.asset('assets/svgs/chest.svg'),
                   padding: const EdgeInsets.all(16.0),
                   backgroundColor: kColorPrimary,
                   borderColor: kColorBorder,
-                  minHorizontalPadding: 16.0,
+                  minHorizontalPadding: 10.0,
                   pressedBottomBorderWidth: 0.0,
                   bottomBorderOnly: true,
                   child: SizedBox(
-                    width: MediaQuery.sizeOf(context).width - 32.0 - 100.0,
+                    width: MediaQuery.sizeOf(context).width - 32.0 - 50.0,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -162,17 +173,23 @@ class HomeFragment extends StatelessWidget {
                           children: [
                             Text(
                               'Leaderboard Anda!',
-                              style: Theme.of(context).textTheme.titleLarge?.copyWith(color: kColorWhite),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(color: kColorWhite),
                             ),
-                            const SizedBox(width: 8.0),
-                            const Icon(Icons.arrow_forward, color: kColorBorder),
+                            const SizedBox(width: 10.0),
+                            const Icon(Icons.leaderboard_outlined, color: kColorWhite),
                           ],
                         ),
                         const SizedBox(height: 8.0),
                         Text(
                           // 'You\'ve Reached a Great Milestone! Celebrate Your Victory.',
                           'Anda telah mencapai tonggak sejarah yang luar biasa!',
-                          style: Theme.of(context).textTheme.bodySmall!.copyWith(color: kColorWhite),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(color: kColorWhite),
                           textAlign: TextAlign.start,
                         ),
                       ],
@@ -185,7 +202,8 @@ class HomeFragment extends StatelessWidget {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
-                child: Text('Yuk, belajar bareng kita!', style: Theme.of(context).textTheme.headlineMedium),
+                child: Text('Yuk, belajar bareng kita!',
+                    style: Theme.of(context).textTheme.headlineSmall),
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 16.0)),
@@ -194,32 +212,39 @@ class HomeFragment extends StatelessWidget {
               sliver: SliverToBoxAdapter(
                 child: ListTile(
                   leading: SvgPicture.asset('assets/svgs/forums.svg'),
-                  title: const Text('Berkomunikasi dengan percaya diri'),
-                  subtitle: const Text('Lebih dari 60.200 latihan interaktif tanpa stres'),
+                  title: const Text('Belajar tanpa bosan!'),
+                  subtitle: const Text(
+                      'Lebih dari 60.200 latihan interaktif yang menyenangkan'),
                   textColor: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),
-            const SliverPadding(padding: EdgeInsets.symmetric(horizontal: 16.0), sliver: SliverToBoxAdapter(child: Divider())),
+            SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                sliver: SliverToBoxAdapter(child: Divider(color: Theme.of(context).colorScheme.secondary))),
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
                 child: ListTile(
                   leading: SvgPicture.asset('assets/svgs/word card.svg'),
-                  title: const Text('Membangun kosakata yang luas'),
-                  subtitle: const Text('Lebih dari 6.400 kata dan frasa praktis'),
+                  title: const Text('Menambah pengetahuan'),
+                  subtitle:
+                      const Text('Menyediakan berbagai macam pembelajaran sesuai kebutuhan Anda!'),
                   textColor: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),
-            const SliverPadding(padding: EdgeInsets.symmetric(horizontal: 16.0), sliver: SliverToBoxAdapter(child: Divider())),
+            SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                sliver: SliverToBoxAdapter(child: Divider(color: Theme.of(context).colorScheme.secondary))),
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
                 child: ListTile(
                   leading: SvgPicture.asset('assets/svgs/watch.svg'),
                   title: const Text('Membentuk kebiasaan belajar'),
-                  subtitle: const Text('Pengingat cerdas, tantangan menyenangkan, dan lainnya'),
+                  subtitle: const Text(
+                      'Pengingat cerdas, tantangan menyenangkan, dan lainnya'),
                   textColor: Theme.of(context).colorScheme.primary,
                 ),
               ),
@@ -230,7 +255,8 @@ class HomeFragment extends StatelessWidget {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
-                child: Text('Leaderboard', style: Theme.of(context).textTheme.headlineMedium),
+                child: Text('Leaderboard',
+                    style: Theme.of(context).textTheme.headlineMedium),
               ),
             ),
             BlocBuilder<LeaderboardBloc, LeaderboardState>(
@@ -249,7 +275,8 @@ class HomeFragment extends StatelessWidget {
                   return SliverFillRemaining(
                     hasScrollBody: false,
                     child: ErrorOccuredButton(
-                      onRetryPressed: () => MyApp.leaderboardBloc.add(InitializeLeaderboardData()),
+                      onRetryPressed: () => MyApp.leaderboardBloc
+                          .add(InitializeLeaderboardData()),
                     ),
                   );
                 }

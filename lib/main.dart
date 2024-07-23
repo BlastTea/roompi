@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => chatbotBloc),
           BlocProvider(create: (context) => changePasswordBloc),
         ],
-        child: LinguaboundMaterialApp(
+        child: RoompiMaterialApp(
           title: 'ROOOMPI',
           home: currentUser != null ? HomePage(key: homePageKey) : const OnBoardingPage1(),
         ),

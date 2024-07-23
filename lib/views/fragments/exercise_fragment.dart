@@ -36,7 +36,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
                 children: [
                   Container(
                     height: MediaQuery.viewPaddingOf(context).top,
-                    color: kColorSurface,
+                    color: kColorPrimary,
                   ),
                   Expanded(
                     child: Stack(

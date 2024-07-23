@@ -59,7 +59,7 @@ sealed class UserDetail with _$UserDetail {
 
   @FreezedUnionValue('Mentor')
   factory UserDetail.mentor({
-    String? nama,
+    @JsonKey(name: 'nama_lengkap') String? namaLengkap,
     String? gelar,
     @JsonKey(name: 'riwayat_pendidikan_terakhir') String? riwayatPendidikanTerakhir,
   }) = Mentor;
@@ -252,7 +252,7 @@ enum UserRole {
   parent;
 
   String get text => switch (this) {
-        remaja => 'Remaja',
+        remaja => 'Pelajar',
         mentor => 'Mentor',
         parent => 'Orang Tua',
       };

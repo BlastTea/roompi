@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
-class LinguaboundMaterialApp extends StatelessWidget {
-  const LinguaboundMaterialApp({
+class RoompiMaterialApp extends StatelessWidget {
+  const RoompiMaterialApp({
     super.key,
     this.home,
     this.title = '',
@@ -18,25 +18,27 @@ class LinguaboundMaterialApp extends StatelessWidget {
         child: MWidgetDynamicColorBuilder(
           builder: (context, theme, darkTheme, themeMode, colorScheme) {
             ColorScheme effectiveColorScheme = colorScheme!.copyWith(
-                // surface: kColorSurface,
+                surface: kColorWhite,
+                primary: const Color(0xFF51563D),
+                secondary: const Color(0xFF8B8F7E),
                 );
 
             TextTheme effectiveTextTheme = TextTheme(
-              bodyLarge: kTextStyleBodyLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              bodyMedium: kTextStyleBodyMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              bodySmall: kTextStyleBodySmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              displayLarge: kTextStyleDisplayLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              displayMedium: kTextStyleDisplayMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              displaySmall: kTextStyleDisplaySmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              headlineLarge: kTextStyleHeadlineLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              headlineMedium: kTextStyleHeadlineMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              headlineSmall: kTextStyleHeadlineSmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              labelLarge: kTextStyleLabelLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              labelMedium: kTextStyleLabelMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              labelSmall: kTextStyleLabelSmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              titleLarge: kTextStyleTitleLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              titleMedium: kTextStyleTitleMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
-              titleSmall: kTextStyleTitleSmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary),
+              bodyLarge: kTextStyleBodyLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w800),
+              bodyMedium: kTextStyleBodyMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              bodySmall: kTextStyleBodySmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              displayLarge: kTextStyleDisplayLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              displayMedium: kTextStyleDisplayMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              displaySmall: kTextStyleDisplaySmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              headlineLarge: kTextStyleHeadlineLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              headlineMedium: kTextStyleHeadlineMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              headlineSmall: kTextStyleHeadlineSmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              labelLarge: kTextStyleLabelLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              labelMedium: kTextStyleLabelMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              labelSmall: kTextStyleLabelSmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              titleLarge: kTextStyleTitleLarge.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
+              titleMedium: kTextStyleTitleMedium.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w400),
+              titleSmall: kTextStyleTitleSmall.copyWith(fontFamily: kFontFamily, color: effectiveColorScheme.primary, fontWeight: FontWeight.w600),
             );
 
             // TODO: Implement color for disabled state

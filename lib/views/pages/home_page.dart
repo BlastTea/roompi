@@ -8,7 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  final TextEditingController _textControllerParentCode = TextEditingController();
+  final TextEditingController _textControllerParentCode =
+      TextEditingController();
 
   int _selectedIndex = 0;
 
@@ -17,7 +18,8 @@ class HomePageState extends State<HomePage> {
   Future<void> _handleSubmitParentCode() async {
     if (_textControllerParentCode.text.trim().isEmpty) {
       NavigationHelper.clearSnackBars();
-      NavigationHelper.showSnackBar(const SnackBar(content: Text('Kode Orang Tua masih kosong')));
+      NavigationHelper.showSnackBar(
+          const SnackBar(content: Text('Kode Orang Tua masih kosong')));
       return;
     }
 
@@ -52,7 +54,10 @@ class HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context) => currentUser?.role == UserRole.remaja && currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua) == null
+  Widget build(BuildContext context) => currentUser?.role == UserRole.remaja &&
+          currentUser?.detail
+                  ?.mapOrNull(remaja: (value) => value.kodeOrangTua) ==
+              null
       ? Scaffold(
           appBar: AppBar(
             leading: const IconButton(
@@ -87,46 +92,76 @@ class HomePageState extends State<HomePage> {
       : Scaffold(
           body: [
             const HomeFragment(),
-            if (currentUser?.role == UserRole.remaja) const ExerciseFragment() else const HistoryExerciseFragment(),
+            if (currentUser?.role == UserRole.remaja)
+              const ExerciseFragment()
+            else
+              const HistoryExerciseFragment(),
             if (currentUser?.role == UserRole.remaja) const MeetFragment(),
             const ProfileFragment(),
           ][_selectedIndex],
           bottomNavigationBar: NavigationBarTheme(
-            data: NavigationBarTheme.of(context).copyWith(labelTextStyle: WidgetStatePropertyAll(Theme.of(context).textTheme.bodySmall?.copyWith(color: kColorBorder))),
+            data: NavigationBarTheme.of(context).copyWith(
+                labelTextStyle: WidgetStatePropertyAll(Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(color: kColorBorder))),
             child: MyNavigationBar(
               backgroundColor: kColorWhite,
-              indicatorShape: const RoundedRectangleBorder(borderRadius: kBorderRadius),
+              indicatorShape:
+                  const RoundedRectangleBorder(borderRadius: kBorderRadius),
               elevation: 8.0,
               indicatorColor: kColorTonalBorder,
               destinations: [
                 MyNavigationDestination(
+                  selectedIcon: SvgPicture.asset(
+                    'assets/svgs/home_selected.svg',
+                    width: 30.0,
+                    height: 30.0,
+                  ),
                   icon: SvgPicture.asset(
-                    'assets/svgs/home.svg',
+                    'assets/svgs/home_unselected.svg',
                     width: 30.0,
                     height: 30.0,
                   ),
                   label: 'Beranda',
                 ),
                 MyNavigationDestination(
-                  icon: SvgPicture.asset(
-                    'assets/svgs/exercise.svg',
+                  selectedIcon: SvgPicture.asset(
+                    'assets/svgs/exercise_selected.svg',
                     width: 30.0,
                     height: 30.0,
                   ),
-                  label: currentUser?.role == UserRole.remaja ? 'Latihan' : 'Laporan',
+                  icon: SvgPicture.asset(
+                    'assets/svgs/exercise_unselected.svg',
+                    width: 30.0,
+                    height: 30.0,
+                  ),
+                  label: currentUser?.role == UserRole.remaja
+                      ? 'Latihan'
+                      : 'Laporan',
                 ),
                 if (currentUser?.role == UserRole.remaja)
                   MyNavigationDestination(
+                    selectedIcon: SvgPicture.asset(
+                      'assets/svgs/meet_selected.svg',
+                      width: 30.0,
+                      height: 30.0,
+                    ),
                     icon: SvgPicture.asset(
-                      'assets/svgs/meet.svg',
+                      'assets/svgs/meet_unselected.svg',
                       width: 30.0,
                       height: 30.0,
                     ),
                     label: 'Meet',
                   ),
                 MyNavigationDestination(
+                  selectedIcon: SvgPicture.asset(
+                    'assets/svgs/profile_selected.svg',
+                    width: 30.0,
+                    height: 30.0,
+                  ),
                   icon: SvgPicture.asset(
-                    'assets/svgs/profile.svg',
+                    'assets/svgs/profile_unselected.svg',
                     width: 30.0,
                     height: 30.0,
                   ),

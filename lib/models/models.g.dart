@@ -81,7 +81,7 @@ Map<String, dynamic> _$$RemajaImplToJson(_$RemajaImpl instance) =>
     };
 
 _$MentorImpl _$$MentorImplFromJson(Map<String, dynamic> json) => _$MentorImpl(
-      nama: json['nama'] as String?,
+      namaLengkap: json['nama_lengkap'] as String?,
       gelar: json['gelar'] as String?,
       riwayatPendidikanTerakhir: json['riwayat_pendidikan_terakhir'] as String?,
       $type: json['role'] as String?,
@@ -89,7 +89,7 @@ _$MentorImpl _$$MentorImplFromJson(Map<String, dynamic> json) => _$MentorImpl(
 
 Map<String, dynamic> _$$MentorImplToJson(_$MentorImpl instance) =>
     <String, dynamic>{
-      'nama': instance.nama,
+      'nama_lengkap': instance.namaLengkap,
       'gelar': instance.gelar,
       'riwayat_pendidikan_terakhir': instance.riwayatPendidikanTerakhir,
       'role': instance.$type,
