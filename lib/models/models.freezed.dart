@@ -406,7 +406,7 @@ mixin _$UserDetail {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
     required TResult Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)
@@ -437,7 +437,7 @@ mixin _$UserDetail {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult? Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)?
@@ -468,7 +468,7 @@ mixin _$UserDetail {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)?
@@ -704,7 +704,7 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
     required TResult Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)
@@ -739,7 +739,7 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult? Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)?
@@ -774,7 +774,7 @@ class _$RemajaImpl implements Remaja {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)?
@@ -908,7 +908,7 @@ abstract class _$$MentorImplCopyWith<$Res> {
       __$$MentorImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {String? nama,
+      {@JsonKey(name: 'nama_lengkap') String? namaLengkap,
       String? gelar,
       @JsonKey(name: 'riwayat_pendidikan_terakhir')
       String? riwayatPendidikanTerakhir});
@@ -925,14 +925,14 @@ class __$$MentorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nama = freezed,
+    Object? namaLengkap = freezed,
     Object? gelar = freezed,
     Object? riwayatPendidikanTerakhir = freezed,
   }) {
     return _then(_$MentorImpl(
-      nama: freezed == nama
-          ? _value.nama
-          : nama // ignore: cast_nullable_to_non_nullable
+      namaLengkap: freezed == namaLengkap
+          ? _value.namaLengkap
+          : namaLengkap // ignore: cast_nullable_to_non_nullable
               as String?,
       gelar: freezed == gelar
           ? _value.gelar
@@ -950,7 +950,7 @@ class __$$MentorImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MentorImpl implements Mentor {
   _$MentorImpl(
-      {this.nama,
+      {@JsonKey(name: 'nama_lengkap') this.namaLengkap,
       this.gelar,
       @JsonKey(name: 'riwayat_pendidikan_terakhir')
       this.riwayatPendidikanTerakhir,
@@ -961,7 +961,8 @@ class _$MentorImpl implements Mentor {
       _$$MentorImplFromJson(json);
 
   @override
-  String? nama;
+  @JsonKey(name: 'nama_lengkap')
+  String? namaLengkap;
   @override
   String? gelar;
   @override
@@ -973,7 +974,7 @@ class _$MentorImpl implements Mentor {
 
   @override
   String toString() {
-    return 'UserDetail.mentor(nama: $nama, gelar: $gelar, riwayatPendidikanTerakhir: $riwayatPendidikanTerakhir)';
+    return 'UserDetail.mentor(namaLengkap: $namaLengkap, gelar: $gelar, riwayatPendidikanTerakhir: $riwayatPendidikanTerakhir)';
   }
 
   @JsonKey(ignore: true)
@@ -999,7 +1000,7 @@ class _$MentorImpl implements Mentor {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
     required TResult Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)
@@ -1013,7 +1014,7 @@ class _$MentorImpl implements Mentor {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         orangTua,
   }) {
-    return mentor(nama, gelar, riwayatPendidikanTerakhir);
+    return mentor(namaLengkap, gelar, riwayatPendidikanTerakhir);
   }
 
   @override
@@ -1033,7 +1034,7 @@ class _$MentorImpl implements Mentor {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult? Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)?
@@ -1047,7 +1048,7 @@ class _$MentorImpl implements Mentor {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         orangTua,
   }) {
-    return mentor?.call(nama, gelar, riwayatPendidikanTerakhir);
+    return mentor?.call(namaLengkap, gelar, riwayatPendidikanTerakhir);
   }
 
   @override
@@ -1067,7 +1068,7 @@ class _$MentorImpl implements Mentor {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)?
@@ -1083,7 +1084,7 @@ class _$MentorImpl implements Mentor {
     required TResult orElse(),
   }) {
     if (mentor != null) {
-      return mentor(nama, gelar, riwayatPendidikanTerakhir);
+      return mentor(namaLengkap, gelar, riwayatPendidikanTerakhir);
     }
     return orElse();
   }
@@ -1132,15 +1133,17 @@ class _$MentorImpl implements Mentor {
 
 abstract class Mentor implements UserDetail {
   factory Mentor(
-      {String? nama,
+      {@JsonKey(name: 'nama_lengkap') String? namaLengkap,
       String? gelar,
       @JsonKey(name: 'riwayat_pendidikan_terakhir')
       String? riwayatPendidikanTerakhir}) = _$MentorImpl;
 
   factory Mentor.fromJson(Map<String, dynamic> json) = _$MentorImpl.fromJson;
 
-  String? get nama;
-  set nama(String? value);
+  @JsonKey(name: 'nama_lengkap')
+  String? get namaLengkap;
+  @JsonKey(name: 'nama_lengkap')
+  set namaLengkap(String? value);
   String? get gelar;
   set gelar(String? value);
   @JsonKey(name: 'riwayat_pendidikan_terakhir')
@@ -1279,7 +1282,7 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)
         remaja,
     required TResult Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)
@@ -1313,7 +1316,7 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult? Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)?
@@ -1347,7 +1350,7 @@ class _$OrangTuaImpl implements OrangTua {
             @JsonKey(name: 'updated_at') DateTime? updatedAt)?
         remaja,
     TResult Function(
-            String? nama,
+            @JsonKey(name: 'nama_lengkap') String? namaLengkap,
             String? gelar,
             @JsonKey(name: 'riwayat_pendidikan_terakhir')
             String? riwayatPendidikanTerakhir)?
