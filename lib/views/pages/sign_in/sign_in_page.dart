@@ -12,9 +12,13 @@ class SignInPage extends StatelessWidget {
             // stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_ORANGTUA']!;
             // stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_ORANGTUA']!;
 
-            stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_REMAJA']!;
-            stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_REMAJA']!;
+            // stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_REMAJA']!;
+            // stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_REMAJA']!;
+
+            stateAuthentication.textControllerEmailSignIn.text = dotenv.env['USERNAME_DUMMY_MENTOR']!;
+            stateAuthentication.textControllerPasswordSignIn.text = dotenv.env['PASSWORD_DUMMY_MENTOR']!;
           }
+          
           return Scaffold(
             appBar: AppBar(
               titleSpacing: 0,

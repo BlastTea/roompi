@@ -4,6 +4,7 @@ import 'package:roompi/models/models.dart';
 import 'package:roompi/views/pages/pages.dart';
 
 part 'page_route.dart';
+part 'functions.dart';
 
 const kFontFamily = 'Rubik';
 const kColorTextBase = Color(0xFF51563D);

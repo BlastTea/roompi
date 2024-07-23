@@ -3511,6 +3511,428 @@ abstract class _Meet implements Meet {
       throw _privateConstructorUsedError;
 }
 
+MentorMeet _$MentorMeetFromJson(Map<String, dynamic> json) {
+  return _MentorMeet.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MentorMeet {
+  @JsonKey(fromJson: _parseInt)
+  int? get id => throw _privateConstructorUsedError;
+  String? get topik => throw _privateConstructorUsedError;
+  String? get deskripsi => throw _privateConstructorUsedError;
+  @JsonKey(name: 'jam_mulai')
+  DateTime? get jamMulai => throw _privateConstructorUsedError;
+  @JsonKey(name: 'jam_berakhir')
+  DateTime? get jamBerakhir => throw _privateConstructorUsedError;
+  DateTime? get tanggal => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
+  String? get materi => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_remaja')
+  int? get totalRemaja => throw _privateConstructorUsedError;
+  @JsonKey(name: 'mentor_id')
+  int? get mentorId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  MeetStatus? get status => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MentorMeetCopyWith<MentorMeet> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MentorMeetCopyWith<$Res> {
+  factory $MentorMeetCopyWith(
+          MentorMeet value, $Res Function(MentorMeet) then) =
+      _$MentorMeetCopyWithImpl<$Res, MentorMeet>;
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      String? topik,
+      String? deskripsi,
+      @JsonKey(name: 'jam_mulai') DateTime? jamMulai,
+      @JsonKey(name: 'jam_berakhir') DateTime? jamBerakhir,
+      DateTime? tanggal,
+      String? link,
+      String? materi,
+      @JsonKey(name: 'total_remaja') int? totalRemaja,
+      @JsonKey(name: 'mentor_id') int? mentorId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      MeetStatus? status});
+}
+
+/// @nodoc
+class _$MentorMeetCopyWithImpl<$Res, $Val extends MentorMeet>
+    implements $MentorMeetCopyWith<$Res> {
+  _$MentorMeetCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? topik = freezed,
+    Object? deskripsi = freezed,
+    Object? jamMulai = freezed,
+    Object? jamBerakhir = freezed,
+    Object? tanggal = freezed,
+    Object? link = freezed,
+    Object? materi = freezed,
+    Object? totalRemaja = freezed,
+    Object? mentorId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? status = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      topik: freezed == topik
+          ? _value.topik
+          : topik // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deskripsi: freezed == deskripsi
+          ? _value.deskripsi
+          : deskripsi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      jamMulai: freezed == jamMulai
+          ? _value.jamMulai
+          : jamMulai // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      jamBerakhir: freezed == jamBerakhir
+          ? _value.jamBerakhir
+          : jamBerakhir // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      tanggal: freezed == tanggal
+          ? _value.tanggal
+          : tanggal // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      materi: freezed == materi
+          ? _value.materi
+          : materi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      totalRemaja: freezed == totalRemaja
+          ? _value.totalRemaja
+          : totalRemaja // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mentorId: freezed == mentorId
+          ? _value.mentorId
+          : mentorId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as MeetStatus?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$MentorMeetImplCopyWith<$Res>
+    implements $MentorMeetCopyWith<$Res> {
+  factory _$$MentorMeetImplCopyWith(
+          _$MentorMeetImpl value, $Res Function(_$MentorMeetImpl) then) =
+      __$$MentorMeetImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      String? topik,
+      String? deskripsi,
+      @JsonKey(name: 'jam_mulai') DateTime? jamMulai,
+      @JsonKey(name: 'jam_berakhir') DateTime? jamBerakhir,
+      DateTime? tanggal,
+      String? link,
+      String? materi,
+      @JsonKey(name: 'total_remaja') int? totalRemaja,
+      @JsonKey(name: 'mentor_id') int? mentorId,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      MeetStatus? status});
+}
+
+/// @nodoc
+class __$$MentorMeetImplCopyWithImpl<$Res>
+    extends _$MentorMeetCopyWithImpl<$Res, _$MentorMeetImpl>
+    implements _$$MentorMeetImplCopyWith<$Res> {
+  __$$MentorMeetImplCopyWithImpl(
+      _$MentorMeetImpl _value, $Res Function(_$MentorMeetImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? topik = freezed,
+    Object? deskripsi = freezed,
+    Object? jamMulai = freezed,
+    Object? jamBerakhir = freezed,
+    Object? tanggal = freezed,
+    Object? link = freezed,
+    Object? materi = freezed,
+    Object? totalRemaja = freezed,
+    Object? mentorId = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? status = freezed,
+  }) {
+    return _then(_$MentorMeetImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      topik: freezed == topik
+          ? _value.topik
+          : topik // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deskripsi: freezed == deskripsi
+          ? _value.deskripsi
+          : deskripsi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      jamMulai: freezed == jamMulai
+          ? _value.jamMulai
+          : jamMulai // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      jamBerakhir: freezed == jamBerakhir
+          ? _value.jamBerakhir
+          : jamBerakhir // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      tanggal: freezed == tanggal
+          ? _value.tanggal
+          : tanggal // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      materi: freezed == materi
+          ? _value.materi
+          : materi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      totalRemaja: freezed == totalRemaja
+          ? _value.totalRemaja
+          : totalRemaja // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mentorId: freezed == mentorId
+          ? _value.mentorId
+          : mentorId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as MeetStatus?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MentorMeetImpl implements _MentorMeet {
+  _$MentorMeetImpl(
+      {@JsonKey(fromJson: _parseInt) this.id,
+      this.topik,
+      this.deskripsi,
+      @JsonKey(name: 'jam_mulai') this.jamMulai,
+      @JsonKey(name: 'jam_berakhir') this.jamBerakhir,
+      this.tanggal,
+      this.link,
+      this.materi,
+      @JsonKey(name: 'total_remaja') this.totalRemaja,
+      @JsonKey(name: 'mentor_id') this.mentorId,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt,
+      this.status});
+
+  factory _$MentorMeetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MentorMeetImplFromJson(json);
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  final int? id;
+  @override
+  final String? topik;
+  @override
+  final String? deskripsi;
+  @override
+  @JsonKey(name: 'jam_mulai')
+  final DateTime? jamMulai;
+  @override
+  @JsonKey(name: 'jam_berakhir')
+  final DateTime? jamBerakhir;
+  @override
+  final DateTime? tanggal;
+  @override
+  final String? link;
+  @override
+  final String? materi;
+  @override
+  @JsonKey(name: 'total_remaja')
+  final int? totalRemaja;
+  @override
+  @JsonKey(name: 'mentor_id')
+  final int? mentorId;
+  @override
+  @JsonKey(name: 'created_at')
+  final DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  final DateTime? updatedAt;
+  @override
+  final MeetStatus? status;
+
+  @override
+  String toString() {
+    return 'MentorMeet(id: $id, topik: $topik, deskripsi: $deskripsi, jamMulai: $jamMulai, jamBerakhir: $jamBerakhir, tanggal: $tanggal, link: $link, materi: $materi, totalRemaja: $totalRemaja, mentorId: $mentorId, createdAt: $createdAt, updatedAt: $updatedAt, status: $status)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MentorMeetImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.topik, topik) || other.topik == topik) &&
+            (identical(other.deskripsi, deskripsi) ||
+                other.deskripsi == deskripsi) &&
+            (identical(other.jamMulai, jamMulai) ||
+                other.jamMulai == jamMulai) &&
+            (identical(other.jamBerakhir, jamBerakhir) ||
+                other.jamBerakhir == jamBerakhir) &&
+            (identical(other.tanggal, tanggal) || other.tanggal == tanggal) &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.materi, materi) || other.materi == materi) &&
+            (identical(other.totalRemaja, totalRemaja) ||
+                other.totalRemaja == totalRemaja) &&
+            (identical(other.mentorId, mentorId) ||
+                other.mentorId == mentorId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      topik,
+      deskripsi,
+      jamMulai,
+      jamBerakhir,
+      tanggal,
+      link,
+      materi,
+      totalRemaja,
+      mentorId,
+      createdAt,
+      updatedAt,
+      status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MentorMeetImplCopyWith<_$MentorMeetImpl> get copyWith =>
+      __$$MentorMeetImplCopyWithImpl<_$MentorMeetImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MentorMeetImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MentorMeet implements MentorMeet {
+  factory _MentorMeet(
+      {@JsonKey(fromJson: _parseInt) final int? id,
+      final String? topik,
+      final String? deskripsi,
+      @JsonKey(name: 'jam_mulai') final DateTime? jamMulai,
+      @JsonKey(name: 'jam_berakhir') final DateTime? jamBerakhir,
+      final DateTime? tanggal,
+      final String? link,
+      final String? materi,
+      @JsonKey(name: 'total_remaja') final int? totalRemaja,
+      @JsonKey(name: 'mentor_id') final int? mentorId,
+      @JsonKey(name: 'created_at') final DateTime? createdAt,
+      @JsonKey(name: 'updated_at') final DateTime? updatedAt,
+      final MeetStatus? status}) = _$MentorMeetImpl;
+
+  factory _MentorMeet.fromJson(Map<String, dynamic> json) =
+      _$MentorMeetImpl.fromJson;
+
+  @override
+  @JsonKey(fromJson: _parseInt)
+  int? get id;
+  @override
+  String? get topik;
+  @override
+  String? get deskripsi;
+  @override
+  @JsonKey(name: 'jam_mulai')
+  DateTime? get jamMulai;
+  @override
+  @JsonKey(name: 'jam_berakhir')
+  DateTime? get jamBerakhir;
+  @override
+  DateTime? get tanggal;
+  @override
+  String? get link;
+  @override
+  String? get materi;
+  @override
+  @JsonKey(name: 'total_remaja')
+  int? get totalRemaja;
+  @override
+  @JsonKey(name: 'mentor_id')
+  int? get mentorId;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? get updatedAt;
+  @override
+  MeetStatus? get status;
+  @override
+  @JsonKey(ignore: true)
+  _$$MentorMeetImplCopyWith<_$MentorMeetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 ChatbotData _$ChatbotDataFromJson(Map<String, dynamic> json) {
   return _ChatbotData.fromJson(json);
 }

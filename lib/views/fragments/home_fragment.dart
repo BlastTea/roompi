@@ -43,8 +43,7 @@ class HomeFragment extends StatelessWidget {
                   else ...[
                     const SizedBox(width: 16.0),
                     Expanded(
-                        child: Text(
-                            'Selamat datang, ${currentUser?.name ?? 'Guest'}! 👋',
+                        child: Text('Halo, ${currentUser?.name ?? 'Guest'}! 👋',
                             style: Theme.of(context).textTheme.titleLarge)),
                   ],
                 ],
@@ -69,8 +68,10 @@ class HomeFragment extends StatelessWidget {
                   title: const Text('Chat dengan AI'),
                   subtitle: Text(
                       'Tingkatkan pengetahuan Anda dengan bertanya ke AI secara efektif!',
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: kColorWhite)),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: kColorWhite)),
                   actions: [
                     TextButton(
                       onPressed: () => NavigationHelper.to(SlidePageRoute(
@@ -105,12 +106,17 @@ class HomeFragment extends StatelessWidget {
                       child: MyFilledButton.tonal(
                         onPressed: () =>
                             homePageKey.currentState?.setSelectedIndex(1),
-                        icon: SvgPicture.asset('assets/svgs/exercise.svg', height: 25, width: 25,),
+                        icon: SvgPicture.asset(
+                          'assets/svgs/exercise.svg',
+                          height: 25,
+                          width: 25,
+                        ),
                         textStyle: Theme.of(context)
                             .textTheme
                             .bodyLarge!
                             .copyWith(color: kColorWhite),
-                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15.0, vertical: 10),
                         backgroundColor: kColorPrimary,
                         borderColor: kColorBorder,
                         minHorizontalPadding: 5.0,
@@ -124,12 +130,17 @@ class HomeFragment extends StatelessWidget {
                       child: MyFilledButton.tonal(
                         onPressed: () =>
                             homePageKey.currentState?.setSelectedIndex(2),
-                        icon: SvgPicture.asset('assets/svgs/meet.svg', height: 25, width: 25,),
+                        icon: SvgPicture.asset(
+                          'assets/svgs/meet.svg',
+                          height: 25,
+                          width: 25,
+                        ),
                         textStyle: Theme.of(context)
                             .textTheme
                             .bodyLarge!
                             .copyWith(color: kColorWhite),
-                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15.0, vertical: 10),
                         backgroundColor: kColorPrimary,
                         borderColor: kColorBorder,
                         minHorizontalPadding: 8.0,
@@ -179,7 +190,8 @@ class HomeFragment extends StatelessWidget {
                                   ?.copyWith(color: kColorWhite),
                             ),
                             const SizedBox(width: 10.0),
-                            const Icon(Icons.leaderboard_outlined, color: kColorWhite),
+                            const Icon(Icons.leaderboard_outlined,
+                                color: kColorWhite),
                           ],
                         ),
                         const SizedBox(height: 8.0),
@@ -221,22 +233,26 @@ class HomeFragment extends StatelessWidget {
             ),
             SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                sliver: SliverToBoxAdapter(child: Divider(color: Theme.of(context).colorScheme.secondary))),
+                sliver: SliverToBoxAdapter(
+                    child: Divider(
+                        color: Theme.of(context).colorScheme.secondary))),
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
                 child: ListTile(
                   leading: SvgPicture.asset('assets/svgs/word card.svg'),
                   title: const Text('Menambah pengetahuan'),
-                  subtitle:
-                      const Text('Menyediakan berbagai macam pembelajaran sesuai kebutuhan Anda!'),
+                  subtitle: const Text(
+                      'Menyediakan berbagai macam pembelajaran sesuai kebutuhan Anda!'),
                   textColor: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),
             SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                sliver: SliverToBoxAdapter(child: Divider(color: Theme.of(context).colorScheme.secondary))),
+                sliver: SliverToBoxAdapter(
+                    child: Divider(
+                        color: Theme.of(context).colorScheme.secondary))),
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               sliver: SliverToBoxAdapter(
@@ -262,12 +278,16 @@ class HomeFragment extends StatelessWidget {
             BlocBuilder<LeaderboardBloc, LeaderboardState>(
               builder: (context, stateLeaderboard) {
                 if (stateLeaderboard is LeaderboardDataLoaded) {
-                  return SliverFillRemaining(
-                    child: CustomScrollView(
-                      slivers: LeaderboardPage.buildListLeaderboards(
-                        context: context,
-                        stateLeaderboard: stateLeaderboard,
-                        withTopPadding: false,
+                  return SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    sliver: SliverFillRemaining(
+                      child: CustomScrollView(
+                        primary: false,
+                        slivers: LeaderboardPage.buildListLeaderboards(
+                          context: context,
+                          stateLeaderboard: stateLeaderboard,
+                          withTopPadding: false,
+                        ),
                       ),
                     ),
                   );

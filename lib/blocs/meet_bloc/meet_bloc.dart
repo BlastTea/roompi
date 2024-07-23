@@ -14,7 +14,18 @@ class MeetBloc extends Bloc<MeetEvent, MeetState> {
       if (event.completer == null) emit(MeetInitial());
 
       try {
-        _meets = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_MEET']!).then((value) => (value['data'] as List).map((e) => Meet.fromJson(e)).toList());
+        if (currentUser?.role == UserRole.remaja) {
+          _meets = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_MEET']!)
+              .then((value) => (value['data'] as List)
+                  .map((e) => Meet.fromJson(e))
+                  .toList());
+        } else {
+          _meets = await ApiHelper.get(
+                  pathUrl: dotenv.env['ENDPOINT_MEET_MENTOR_LIST']!)
+              .then((value) => (value['data'] as List)
+                  .map((e) => Meet.fromJson(e))
+                  .toList());
+        }
       } catch (e) {
         event.completer?.complete(false);
         ApiHelper.handleError(e);
@@ -23,6 +34,19 @@ class MeetBloc extends Bloc<MeetEvent, MeetState> {
 
       event.completer?.complete(true);
       emit(_meetDataLoaded);
+    });
+
+    on<PublishMeetPressed>((event, emit) async {
+      try {
+        await ApiHelper.post(
+          pathUrl:
+              '${dotenv.env['ENDPOINT_MEET_MENTOR_PUBLISH']}/${event.meetId}',
+        );
+      } catch (e) {
+        NavigationHelper.back();
+        await ApiHelper.handleError(e);
+        return;
+      }
     });
   }
 

@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:path/path.dart';
 import 'package:roompi/blocs/blocs.dart';
 import 'package:roompi/main.dart';
 import 'package:roompi/models/models.dart';

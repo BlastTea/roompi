@@ -185,6 +185,27 @@ class Meet with _$Meet {
   factory Meet.fromJson(Map<String, dynamic> json) => _$MeetFromJson(json);
 }
 
+@freezed
+class MentorMeet with _$MentorMeet {
+  factory MentorMeet({
+    @JsonKey(fromJson: _parseInt) int? id,
+    String? topik,
+    String? deskripsi,
+    @JsonKey(name: 'jam_mulai') DateTime? jamMulai,
+    @JsonKey(name: 'jam_berakhir') DateTime? jamBerakhir,
+    DateTime? tanggal,
+    String? link,
+    String? materi,
+    @JsonKey(name: 'total_remaja') int? totalRemaja,
+    @JsonKey(name: 'mentor_id') int? mentorId,
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+    MeetStatus? status,
+  }) = _MentorMeet;
+
+  factory MentorMeet.fromJson(Map<String, dynamic> json) => _$MentorMeetFromJson(json);
+}
+
 @unfreezed
 class ChatbotData with _$ChatbotData {
   factory ChatbotData({

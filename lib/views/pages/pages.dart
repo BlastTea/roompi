@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,6 +28,8 @@ part 'leaderboard_page.dart';
 part 'edit_profile_page.dart';
 part 'change_password_page.dart';
 part 'chatbot_page.dart';
+part 'store_meet_page.dart';
+part 'store_meet_successful_page.dart';
 
 part 'on_boarding_page.dart';
 
