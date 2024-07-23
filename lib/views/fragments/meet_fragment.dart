@@ -201,7 +201,7 @@ class MeetFragment extends StatelessWidget {
                                                   ),
                                                   FilledButton(
                                                     onPressed: () {
-                                                      
+
                                                     },
                                                     style:
                                                         FilledButton.styleFrom(
@@ -237,7 +237,7 @@ class MeetFragment extends StatelessWidget {
                         )),
                     floatingActionButton: FloatingActionButton(
                       onPressed: () => NavigationHelper.to(SlidePageRoute(
-                          pageBuilder: (context) => const StoreMeetPage())),
+                          pageBuilder: (context) => StoreMeetPage())),
                       foregroundColor: kColorWhite,
                       backgroundColor: kColorPrimary,
                       child: const Icon(Icons.add),

@@ -26,9 +26,6 @@ class MeetBloc extends Bloc<MeetEvent, MeetState> {
                   .map((e) => Meet.fromJson(e))
                   .toList());
         }
-        if (kDebugMode) {
-          print('Number of meets loaded: ${_meets.length}');
-        }
       } catch (e) {
         event.completer?.complete(false);
         ApiHelper.handleError(e);
@@ -38,6 +35,8 @@ class MeetBloc extends Bloc<MeetEvent, MeetState> {
       event.completer?.complete(true);
       emit(_meetDataLoaded);
     });
+
+    
   }
 
   List<Meet> _meets = [];
