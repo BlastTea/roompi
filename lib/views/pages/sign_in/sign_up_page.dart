@@ -83,6 +83,7 @@ class SignUpPage extends StatelessWidget {
                             labelText: 'Email',
                           ),
                           textInputAction: TextInputAction.next,
+                          textCapitalization: TextCapitalization.none,
                         ),
                       ),
                       const SizedBox(height: 15.0),

@@ -1687,22 +1687,10 @@ Exercise _$ExerciseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Exercise {
-  @JsonKey(fromJson: _parseInt)
-  int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'remaja_id', fromJson: _parseInt)
-  int? get remajaId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'bagian_id', fromJson: _parseInt)
-  int? get bagianId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
-  int? get subBagianId => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _parseInt)
-  int? get nilai => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _parseBool)
-  bool? get completed => throw _privateConstructorUsedError;
-  @JsonKey(name: 'nama_bagian')
-  String? get namaBagian => throw _privateConstructorUsedError;
-  @JsonKey(name: 'nama_sub_bagian')
-  String? get namaSubBagian => throw _privateConstructorUsedError;
+  @JsonKey(name: 'category_id', fromJson: _parseInt)
+  int? get categoryId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'data_mapel')
+  List<ExerciseSubject>? get dataMapel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1716,14 +1704,8 @@ abstract class $ExerciseCopyWith<$Res> {
       _$ExerciseCopyWithImpl<$Res, Exercise>;
   @useResult
   $Res call(
-      {@JsonKey(fromJson: _parseInt) int? id,
-      @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
-      @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
-      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
-      @JsonKey(fromJson: _parseInt) int? nilai,
-      @JsonKey(fromJson: _parseBool) bool? completed,
-      @JsonKey(name: 'nama_bagian') String? namaBagian,
-      @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian});
+      {@JsonKey(name: 'category_id', fromJson: _parseInt) int? categoryId,
+      @JsonKey(name: 'data_mapel') List<ExerciseSubject>? dataMapel});
 }
 
 /// @nodoc
@@ -1739,14 +1721,226 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? categoryId = freezed,
+    Object? dataMapel = freezed,
+  }) {
+    return _then(_value.copyWith(
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dataMapel: freezed == dataMapel
+          ? _value.dataMapel
+          : dataMapel // ignore: cast_nullable_to_non_nullable
+              as List<ExerciseSubject>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ExerciseImplCopyWith<$Res>
+    implements $ExerciseCopyWith<$Res> {
+  factory _$$ExerciseImplCopyWith(
+          _$ExerciseImpl value, $Res Function(_$ExerciseImpl) then) =
+      __$$ExerciseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'category_id', fromJson: _parseInt) int? categoryId,
+      @JsonKey(name: 'data_mapel') List<ExerciseSubject>? dataMapel});
+}
+
+/// @nodoc
+class __$$ExerciseImplCopyWithImpl<$Res>
+    extends _$ExerciseCopyWithImpl<$Res, _$ExerciseImpl>
+    implements _$$ExerciseImplCopyWith<$Res> {
+  __$$ExerciseImplCopyWithImpl(
+      _$ExerciseImpl _value, $Res Function(_$ExerciseImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categoryId = freezed,
+    Object? dataMapel = freezed,
+  }) {
+    return _then(_$ExerciseImpl(
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dataMapel: freezed == dataMapel
+          ? _value._dataMapel
+          : dataMapel // ignore: cast_nullable_to_non_nullable
+              as List<ExerciseSubject>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ExerciseImpl implements _Exercise {
+  _$ExerciseImpl(
+      {@JsonKey(name: 'category_id', fromJson: _parseInt) this.categoryId,
+      @JsonKey(name: 'data_mapel') final List<ExerciseSubject>? dataMapel})
+      : _dataMapel = dataMapel;
+
+  factory _$ExerciseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExerciseImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'category_id', fromJson: _parseInt)
+  final int? categoryId;
+  final List<ExerciseSubject>? _dataMapel;
+  @override
+  @JsonKey(name: 'data_mapel')
+  List<ExerciseSubject>? get dataMapel {
+    final value = _dataMapel;
+    if (value == null) return null;
+    if (_dataMapel is EqualUnmodifiableListView) return _dataMapel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'Exercise(categoryId: $categoryId, dataMapel: $dataMapel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ExerciseImpl &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId) &&
+            const DeepCollectionEquality()
+                .equals(other._dataMapel, _dataMapel));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, categoryId, const DeepCollectionEquality().hash(_dataMapel));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ExerciseImplCopyWith<_$ExerciseImpl> get copyWith =>
+      __$$ExerciseImplCopyWithImpl<_$ExerciseImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ExerciseImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Exercise implements Exercise {
+  factory _Exercise(
+      {@JsonKey(name: 'category_id', fromJson: _parseInt) final int? categoryId,
+      @JsonKey(name: 'data_mapel')
+      final List<ExerciseSubject>? dataMapel}) = _$ExerciseImpl;
+
+  factory _Exercise.fromJson(Map<String, dynamic> json) =
+      _$ExerciseImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'category_id', fromJson: _parseInt)
+  int? get categoryId;
+  @override
+  @JsonKey(name: 'data_mapel')
+  List<ExerciseSubject>? get dataMapel;
+  @override
+  @JsonKey(ignore: true)
+  _$$ExerciseImplCopyWith<_$ExerciseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ExerciseSubject _$ExerciseSubjectFromJson(Map<String, dynamic> json) {
+  return _ExerciseSubject.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ExerciseSubject {
+  @JsonKey(fromJson: _parseInt)
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'remaja_id', fromJson: _parseInt)
+  int? get remajaId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bagian_id', fromJson: _parseInt)
+  int? get bagianId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+  int? get subBagianId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'activity_id', fromJson: _parseInt)
+  int? get activityId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'category_id', fromJson: _parseInt)
+  int? get categoryId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'paket_id', fromJson: _parseInt)
+  int? get paketId => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseInt)
+  int? get nilai => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseBool)
+  bool? get completed => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_bagian')
+  String? get namaBagian => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_sub_bagian')
+  String? get namaSubBagian => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_mapel')
+  String? get namaMapel => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ExerciseSubjectCopyWith<ExerciseSubject> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ExerciseSubjectCopyWith<$Res> {
+  factory $ExerciseSubjectCopyWith(
+          ExerciseSubject value, $Res Function(ExerciseSubject) then) =
+      _$ExerciseSubjectCopyWithImpl<$Res, ExerciseSubject>;
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _parseInt) int? id,
+      @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
+      @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+      @JsonKey(name: 'activity_id', fromJson: _parseInt) int? activityId,
+      @JsonKey(name: 'category_id', fromJson: _parseInt) int? categoryId,
+      @JsonKey(name: 'paket_id', fromJson: _parseInt) int? paketId,
+      @JsonKey(fromJson: _parseInt) int? nilai,
+      @JsonKey(fromJson: _parseBool) bool? completed,
+      @JsonKey(name: 'nama_bagian') String? namaBagian,
+      @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian,
+      @JsonKey(name: 'nama_mapel') String? namaMapel});
+}
+
+/// @nodoc
+class _$ExerciseSubjectCopyWithImpl<$Res, $Val extends ExerciseSubject>
+    implements $ExerciseSubjectCopyWith<$Res> {
+  _$ExerciseSubjectCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
     Object? id = freezed,
     Object? remajaId = freezed,
     Object? bagianId = freezed,
     Object? subBagianId = freezed,
+    Object? activityId = freezed,
+    Object? categoryId = freezed,
+    Object? paketId = freezed,
     Object? nilai = freezed,
     Object? completed = freezed,
     Object? namaBagian = freezed,
     Object? namaSubBagian = freezed,
+    Object? namaMapel = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -1765,6 +1959,18 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
           ? _value.subBagianId
           : subBagianId // ignore: cast_nullable_to_non_nullable
               as int?,
+      activityId: freezed == activityId
+          ? _value.activityId
+          : activityId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      paketId: freezed == paketId
+          ? _value.paketId
+          : paketId // ignore: cast_nullable_to_non_nullable
+              as int?,
       nilai: freezed == nilai
           ? _value.nilai
           : nilai // ignore: cast_nullable_to_non_nullable
@@ -1781,16 +1987,20 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
           ? _value.namaSubBagian
           : namaSubBagian // ignore: cast_nullable_to_non_nullable
               as String?,
+      namaMapel: freezed == namaMapel
+          ? _value.namaMapel
+          : namaMapel // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ExerciseImplCopyWith<$Res>
-    implements $ExerciseCopyWith<$Res> {
-  factory _$$ExerciseImplCopyWith(
-          _$ExerciseImpl value, $Res Function(_$ExerciseImpl) then) =
-      __$$ExerciseImplCopyWithImpl<$Res>;
+abstract class _$$ExerciseSubjectImplCopyWith<$Res>
+    implements $ExerciseSubjectCopyWith<$Res> {
+  factory _$$ExerciseSubjectImplCopyWith(_$ExerciseSubjectImpl value,
+          $Res Function(_$ExerciseSubjectImpl) then) =
+      __$$ExerciseSubjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1798,18 +2008,22 @@ abstract class _$$ExerciseImplCopyWith<$Res>
       @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
       @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
       @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+      @JsonKey(name: 'activity_id', fromJson: _parseInt) int? activityId,
+      @JsonKey(name: 'category_id', fromJson: _parseInt) int? categoryId,
+      @JsonKey(name: 'paket_id', fromJson: _parseInt) int? paketId,
       @JsonKey(fromJson: _parseInt) int? nilai,
       @JsonKey(fromJson: _parseBool) bool? completed,
       @JsonKey(name: 'nama_bagian') String? namaBagian,
-      @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian});
+      @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian,
+      @JsonKey(name: 'nama_mapel') String? namaMapel});
 }
 
 /// @nodoc
-class __$$ExerciseImplCopyWithImpl<$Res>
-    extends _$ExerciseCopyWithImpl<$Res, _$ExerciseImpl>
-    implements _$$ExerciseImplCopyWith<$Res> {
-  __$$ExerciseImplCopyWithImpl(
-      _$ExerciseImpl _value, $Res Function(_$ExerciseImpl) _then)
+class __$$ExerciseSubjectImplCopyWithImpl<$Res>
+    extends _$ExerciseSubjectCopyWithImpl<$Res, _$ExerciseSubjectImpl>
+    implements _$$ExerciseSubjectImplCopyWith<$Res> {
+  __$$ExerciseSubjectImplCopyWithImpl(
+      _$ExerciseSubjectImpl _value, $Res Function(_$ExerciseSubjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1819,12 +2033,16 @@ class __$$ExerciseImplCopyWithImpl<$Res>
     Object? remajaId = freezed,
     Object? bagianId = freezed,
     Object? subBagianId = freezed,
+    Object? activityId = freezed,
+    Object? categoryId = freezed,
+    Object? paketId = freezed,
     Object? nilai = freezed,
     Object? completed = freezed,
     Object? namaBagian = freezed,
     Object? namaSubBagian = freezed,
+    Object? namaMapel = freezed,
   }) {
-    return _then(_$ExerciseImpl(
+    return _then(_$ExerciseSubjectImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1841,6 +2059,18 @@ class __$$ExerciseImplCopyWithImpl<$Res>
           ? _value.subBagianId
           : subBagianId // ignore: cast_nullable_to_non_nullable
               as int?,
+      activityId: freezed == activityId
+          ? _value.activityId
+          : activityId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      paketId: freezed == paketId
+          ? _value.paketId
+          : paketId // ignore: cast_nullable_to_non_nullable
+              as int?,
       nilai: freezed == nilai
           ? _value.nilai
           : nilai // ignore: cast_nullable_to_non_nullable
@@ -1857,25 +2087,33 @@ class __$$ExerciseImplCopyWithImpl<$Res>
           ? _value.namaSubBagian
           : namaSubBagian // ignore: cast_nullable_to_non_nullable
               as String?,
+      namaMapel: freezed == namaMapel
+          ? _value.namaMapel
+          : namaMapel // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ExerciseImpl implements _Exercise {
-  _$ExerciseImpl(
+class _$ExerciseSubjectImpl implements _ExerciseSubject {
+  _$ExerciseSubjectImpl(
       {@JsonKey(fromJson: _parseInt) this.id,
       @JsonKey(name: 'remaja_id', fromJson: _parseInt) this.remajaId,
       @JsonKey(name: 'bagian_id', fromJson: _parseInt) this.bagianId,
       @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) this.subBagianId,
+      @JsonKey(name: 'activity_id', fromJson: _parseInt) this.activityId,
+      @JsonKey(name: 'category_id', fromJson: _parseInt) this.categoryId,
+      @JsonKey(name: 'paket_id', fromJson: _parseInt) this.paketId,
       @JsonKey(fromJson: _parseInt) this.nilai,
       @JsonKey(fromJson: _parseBool) this.completed,
       @JsonKey(name: 'nama_bagian') this.namaBagian,
-      @JsonKey(name: 'nama_sub_bagian') this.namaSubBagian});
+      @JsonKey(name: 'nama_sub_bagian') this.namaSubBagian,
+      @JsonKey(name: 'nama_mapel') this.namaMapel});
 
-  factory _$ExerciseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ExerciseImplFromJson(json);
+  factory _$ExerciseSubjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExerciseSubjectImplFromJson(json);
 
   @override
   @JsonKey(fromJson: _parseInt)
@@ -1890,6 +2128,15 @@ class _$ExerciseImpl implements _Exercise {
   @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
   final int? subBagianId;
   @override
+  @JsonKey(name: 'activity_id', fromJson: _parseInt)
+  final int? activityId;
+  @override
+  @JsonKey(name: 'category_id', fromJson: _parseInt)
+  final int? categoryId;
+  @override
+  @JsonKey(name: 'paket_id', fromJson: _parseInt)
+  final int? paketId;
+  @override
   @JsonKey(fromJson: _parseInt)
   final int? nilai;
   @override
@@ -1901,17 +2148,20 @@ class _$ExerciseImpl implements _Exercise {
   @override
   @JsonKey(name: 'nama_sub_bagian')
   final String? namaSubBagian;
+  @override
+  @JsonKey(name: 'nama_mapel')
+  final String? namaMapel;
 
   @override
   String toString() {
-    return 'Exercise(id: $id, remajaId: $remajaId, bagianId: $bagianId, subBagianId: $subBagianId, nilai: $nilai, completed: $completed, namaBagian: $namaBagian, namaSubBagian: $namaSubBagian)';
+    return 'ExerciseSubject(id: $id, remajaId: $remajaId, bagianId: $bagianId, subBagianId: $subBagianId, activityId: $activityId, categoryId: $categoryId, paketId: $paketId, nilai: $nilai, completed: $completed, namaBagian: $namaBagian, namaSubBagian: $namaSubBagian, namaMapel: $namaMapel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExerciseImpl &&
+            other is _$ExerciseSubjectImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.remajaId, remajaId) ||
                 other.remajaId == remajaId) &&
@@ -1919,49 +2169,73 @@ class _$ExerciseImpl implements _Exercise {
                 other.bagianId == bagianId) &&
             (identical(other.subBagianId, subBagianId) ||
                 other.subBagianId == subBagianId) &&
+            (identical(other.activityId, activityId) ||
+                other.activityId == activityId) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId) &&
+            (identical(other.paketId, paketId) || other.paketId == paketId) &&
             (identical(other.nilai, nilai) || other.nilai == nilai) &&
             (identical(other.completed, completed) ||
                 other.completed == completed) &&
             (identical(other.namaBagian, namaBagian) ||
                 other.namaBagian == namaBagian) &&
             (identical(other.namaSubBagian, namaSubBagian) ||
-                other.namaSubBagian == namaSubBagian));
+                other.namaSubBagian == namaSubBagian) &&
+            (identical(other.namaMapel, namaMapel) ||
+                other.namaMapel == namaMapel));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, remajaId, bagianId,
-      subBagianId, nilai, completed, namaBagian, namaSubBagian);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      remajaId,
+      bagianId,
+      subBagianId,
+      activityId,
+      categoryId,
+      paketId,
+      nilai,
+      completed,
+      namaBagian,
+      namaSubBagian,
+      namaMapel);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ExerciseImplCopyWith<_$ExerciseImpl> get copyWith =>
-      __$$ExerciseImplCopyWithImpl<_$ExerciseImpl>(this, _$identity);
+  _$$ExerciseSubjectImplCopyWith<_$ExerciseSubjectImpl> get copyWith =>
+      __$$ExerciseSubjectImplCopyWithImpl<_$ExerciseSubjectImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ExerciseImplToJson(
+    return _$$ExerciseSubjectImplToJson(
       this,
     );
   }
 }
 
-abstract class _Exercise implements Exercise {
-  factory _Exercise(
-          {@JsonKey(fromJson: _parseInt) final int? id,
-          @JsonKey(name: 'remaja_id', fromJson: _parseInt) final int? remajaId,
-          @JsonKey(name: 'bagian_id', fromJson: _parseInt) final int? bagianId,
-          @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
-          final int? subBagianId,
-          @JsonKey(fromJson: _parseInt) final int? nilai,
-          @JsonKey(fromJson: _parseBool) final bool? completed,
-          @JsonKey(name: 'nama_bagian') final String? namaBagian,
-          @JsonKey(name: 'nama_sub_bagian') final String? namaSubBagian}) =
-      _$ExerciseImpl;
+abstract class _ExerciseSubject implements ExerciseSubject {
+  factory _ExerciseSubject(
+      {@JsonKey(fromJson: _parseInt) final int? id,
+      @JsonKey(name: 'remaja_id', fromJson: _parseInt) final int? remajaId,
+      @JsonKey(name: 'bagian_id', fromJson: _parseInt) final int? bagianId,
+      @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
+      final int? subBagianId,
+      @JsonKey(name: 'activity_id', fromJson: _parseInt) final int? activityId,
+      @JsonKey(name: 'category_id', fromJson: _parseInt) final int? categoryId,
+      @JsonKey(name: 'paket_id', fromJson: _parseInt) final int? paketId,
+      @JsonKey(fromJson: _parseInt) final int? nilai,
+      @JsonKey(fromJson: _parseBool) final bool? completed,
+      @JsonKey(name: 'nama_bagian') final String? namaBagian,
+      @JsonKey(name: 'nama_sub_bagian') final String? namaSubBagian,
+      @JsonKey(name: 'nama_mapel')
+      final String? namaMapel}) = _$ExerciseSubjectImpl;
 
-  factory _Exercise.fromJson(Map<String, dynamic> json) =
-      _$ExerciseImpl.fromJson;
+  factory _ExerciseSubject.fromJson(Map<String, dynamic> json) =
+      _$ExerciseSubjectImpl.fromJson;
 
   @override
   @JsonKey(fromJson: _parseInt)
@@ -1976,6 +2250,15 @@ abstract class _Exercise implements Exercise {
   @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt)
   int? get subBagianId;
   @override
+  @JsonKey(name: 'activity_id', fromJson: _parseInt)
+  int? get activityId;
+  @override
+  @JsonKey(name: 'category_id', fromJson: _parseInt)
+  int? get categoryId;
+  @override
+  @JsonKey(name: 'paket_id', fromJson: _parseInt)
+  int? get paketId;
+  @override
   @JsonKey(fromJson: _parseInt)
   int? get nilai;
   @override
@@ -1988,8 +2271,11 @@ abstract class _Exercise implements Exercise {
   @JsonKey(name: 'nama_sub_bagian')
   String? get namaSubBagian;
   @override
+  @JsonKey(name: 'nama_mapel')
+  String? get namaMapel;
+  @override
   @JsonKey(ignore: true)
-  _$$ExerciseImplCopyWith<_$ExerciseImpl> get copyWith =>
+  _$$ExerciseSubjectImplCopyWith<_$ExerciseSubjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -129,7 +129,7 @@ final class ApiHelper {
       } else if (currentUser?.role == UserRole.parent) {
         MyApp.historyExerciseBloc.add(InitializeHistoryExerciseData());
       }
-      MyApp.meetBloc.add(InitializeMeetData());
+      if (currentUser?.role != UserRole.parent) MyApp.meetBloc.add(InitializeMeetData());
       MyApp.editProfileBloc.add(InitializeEditProfileData());
     }
   }

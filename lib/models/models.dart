@@ -6,11 +6,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'models.g.dart';
 part 'models.freezed.dart';
 
-bool? _parseBool(dynamic data) => data is int? && data != null
-    ? data == 1
-    : data is bool
-        ? data
-        : null;
+bool? _parseBool(dynamic data) {
+  if (data is int? && data != null) return data == 1;
+
+  if (data is String? && data != null) return int.tryParse(data) == 1;
+
+  return data;
+}
+
 int? _parseInt(dynamic value) => value is String? && value != null
     ? int.tryParse(value)
     : value is int
@@ -93,17 +96,31 @@ class Leaderboard with _$Leaderboard {
 @freezed
 class Exercise with _$Exercise {
   factory Exercise({
+    @JsonKey(name: 'category_id', fromJson: _parseInt) int? categoryId,
+    @JsonKey(name: 'data_mapel') List<ExerciseSubject>? dataMapel,
+  }) = _Exercise;
+
+  factory Exercise.fromJson(Map<String, dynamic> json) => _$ExerciseFromJson(json);
+}
+
+@freezed
+class ExerciseSubject with _$ExerciseSubject {
+  factory ExerciseSubject({
     @JsonKey(fromJson: _parseInt) int? id,
     @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
     @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
     @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
+    @JsonKey(name: 'activity_id', fromJson: _parseInt) int? activityId,
+    @JsonKey(name: 'category_id', fromJson: _parseInt) int? categoryId,
+    @JsonKey(name: 'paket_id', fromJson: _parseInt) int? paketId,
     @JsonKey(fromJson: _parseInt) int? nilai,
     @JsonKey(fromJson: _parseBool) bool? completed,
     @JsonKey(name: 'nama_bagian') String? namaBagian,
     @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian,
-  }) = _Exercise;
+    @JsonKey(name: 'nama_mapel') String? namaMapel,
+  }) = _ExerciseSubject;
 
-  factory Exercise.fromJson(Map<String, dynamic> json) => _$ExerciseFromJson(json);
+  factory ExerciseSubject.fromJson(Map<String, dynamic> json) => _$ExerciseSubjectFromJson(json);
 }
 
 @freezed

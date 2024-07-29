@@ -106,7 +106,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
                             animation: _animationController,
                             builder: (context, child) {
                               try {
-                                Offset? activeButtonOffset = (stateExercise.buttonKeys[stateExercise.currentActiveIndex].currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
+                                Offset? activeButtonOffset = (stateExercise.buttonKeys[stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex]].currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
 
                                 return Positioned(
                                   top: (activeButtonOffset?.dy ?? 0.0) - 70.0 + (5.0 * CurvedAnimation(parent: _animationController, curve: Curves.easeInOut).value),
@@ -120,9 +120,9 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
                                             ),
                                             Positioned(
                                               top: 12.0,
-                                              left: stateExercise.currentActiveIndex > 0 ? 14.0 : 16.0,
+                                              left: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] > 0 ? 14.0 : 16.0,
                                               child: Text(
-                                                stateExercise.currentActiveIndex > 0 ? 'Lanjut' : 'Mulai',
+                                                stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] > 0 ? 'Lanjut' : 'Mulai',
                                                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
                                               ),
                                             ),
@@ -254,9 +254,9 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               child: CircleExerciseButton(
                 key: stateExercise.buttonKeys[startIndex],
                 svgAsset: 'star',
-                onPressed: stateExercise.currentActiveIndex >= startIndex ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex])) : () {},
-                enabled: stateExercise.currentActiveIndex >= startIndex,
-                ignorePointer: startIndex < stateExercise.currentActiveIndex,
+                onPressed: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex])) : () {},
+                enabled: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex,
+                ignorePointer: startIndex < stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex],
               ),
             ),
             Positioned(
@@ -266,9 +266,9 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               child: CircleExerciseButton(
                 key: stateExercise.buttonKeys[startIndex + 1],
                 svgAsset: 'padlock',
-                onPressed: stateExercise.currentActiveIndex >= startIndex + 1 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 1])) : () {},
-                enabled: stateExercise.currentActiveIndex >= startIndex + 1,
-                ignorePointer: startIndex + 1 < stateExercise.currentActiveIndex,
+                onPressed: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 1 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 1])) : () {},
+                enabled: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 1,
+                ignorePointer: startIndex + 1 < stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex],
               ),
             ),
             Positioned(
@@ -278,9 +278,9 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               child: CircleExerciseButton(
                 key: stateExercise.buttonKeys[startIndex + 2],
                 svgAsset: 'book',
-                onPressed: stateExercise.currentActiveIndex >= startIndex + 2 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 2])) : () {},
-                enabled: stateExercise.currentActiveIndex >= startIndex + 2,
-                ignorePointer: startIndex + 2 < stateExercise.currentActiveIndex,
+                onPressed: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 2 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 2])) : () {},
+                enabled: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 2,
+                ignorePointer: startIndex + 2 < stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex],
               ),
             ),
             Positioned(
@@ -290,9 +290,9 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
               child: CircleExerciseButton(
                 key: stateExercise.buttonKeys[startIndex + 3],
                 svgAsset: 'trophy',
-                onPressed: stateExercise.currentActiveIndex >= startIndex + 3 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 3])) : () {},
-                enabled: stateExercise.currentActiveIndex >= startIndex + 3,
-                ignorePointer: startIndex + 3 < stateExercise.currentActiveIndex,
+                onPressed: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 3 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 3])) : () {},
+                enabled: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 3,
+                ignorePointer: startIndex + 3 < stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex],
               ),
             ),
           ],

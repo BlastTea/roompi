@@ -141,26 +141,50 @@ Map<String, dynamic> _$$LeaderboardImplToJson(_$LeaderboardImpl instance) =>
 
 _$ExerciseImpl _$$ExerciseImplFromJson(Map<String, dynamic> json) =>
     _$ExerciseImpl(
+      categoryId: _parseInt(json['category_id']),
+      dataMapel: (json['data_mapel'] as List<dynamic>?)
+          ?.map((e) => ExerciseSubject.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$ExerciseImplToJson(_$ExerciseImpl instance) =>
+    <String, dynamic>{
+      'category_id': instance.categoryId,
+      'data_mapel': instance.dataMapel,
+    };
+
+_$ExerciseSubjectImpl _$$ExerciseSubjectImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ExerciseSubjectImpl(
       id: _parseInt(json['id']),
       remajaId: _parseInt(json['remaja_id']),
       bagianId: _parseInt(json['bagian_id']),
       subBagianId: _parseInt(json['sub_bagian_id']),
+      activityId: _parseInt(json['activity_id']),
+      categoryId: _parseInt(json['category_id']),
+      paketId: _parseInt(json['paket_id']),
       nilai: _parseInt(json['nilai']),
       completed: _parseBool(json['completed']),
       namaBagian: json['nama_bagian'] as String?,
       namaSubBagian: json['nama_sub_bagian'] as String?,
+      namaMapel: json['nama_mapel'] as String?,
     );
 
-Map<String, dynamic> _$$ExerciseImplToJson(_$ExerciseImpl instance) =>
+Map<String, dynamic> _$$ExerciseSubjectImplToJson(
+        _$ExerciseSubjectImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'remaja_id': instance.remajaId,
       'bagian_id': instance.bagianId,
       'sub_bagian_id': instance.subBagianId,
+      'activity_id': instance.activityId,
+      'category_id': instance.categoryId,
+      'paket_id': instance.paketId,
       'nilai': instance.nilai,
       'completed': instance.completed,
       'nama_bagian': instance.namaBagian,
       'nama_sub_bagian': instance.namaSubBagian,
+      'nama_mapel': instance.namaMapel,
     };
 
 _$HistoryExerciseImpl _$$HistoryExerciseImplFromJson(
