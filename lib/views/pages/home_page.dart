@@ -55,18 +55,36 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => currentUser?.role == UserRole.remaja && currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua) == null
       ? Scaffold(
           appBar: AppBar(
+            titleSpacing: 0,
             leading: const IconButton(
               onPressed: ApiHelper.signOut,
               icon: Icon(Icons.logout),
               tooltip: 'Logout',
+            ),
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Kode Orang Tua',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                Text(
+                  'Yuk, kaitkan dengan akun orang tua!',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleSmall!
+                      .copyWith(color: Theme.of(context).colorScheme.secondary),
+                )
+              ],
             ),
           ),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 20),
                   TextField(
                     controller: _textControllerParentCode,
                     decoration: const InputDecoration(

@@ -10,7 +10,6 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:roompi/models/models.dart';
 import 'package:roompi/services/services.dart';
 import 'package:roompi/utils/utils.dart';
-import 'package:roompi/views/fragments/fragments.dart';
 import 'package:roompi/views/pages/pages.dart';
 import 'package:m_widget/m_widget.dart';
 import 'package:http/http.dart' as http;

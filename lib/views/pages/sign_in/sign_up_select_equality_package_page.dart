@@ -28,7 +28,7 @@ class _SignUpSelectEqualityPackagePageState extends State<SignUpSelectEqualityPa
               (e) => RadioListTile(
                 value: e,
                 groupValue: _selectedValue,
-                title: Text(e.text),
+                title: Text('Tipe ${e.text}'),
                 controlAffinity: ListTileControlAffinity.trailing,
                 onChanged: (value) => setState(() => _selectedValue = value),
               ),
