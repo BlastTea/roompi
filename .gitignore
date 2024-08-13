@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/release
 
 .env
+
+example/exercise_state.example.json
+example/exercise_state.example 2.json

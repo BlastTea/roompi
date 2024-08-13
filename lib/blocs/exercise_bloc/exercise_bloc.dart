@@ -15,6 +15,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
       _selectedAnswers.clear();
 
       _currentActiveIndexes.clear();
+      _exerciseLengths.clear();
       _currentQuestionDataIndex = 0;
       _selectedAnswerIndex = -1;
       emit(ExerciseInitial());
@@ -59,9 +60,27 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
       try {
         _exercises = await ApiHelper.get(pathUrl: dotenv.env['ENDPOINT_EXERCISE_STATE']!).then((value) => (value['data'] as List).map((e) => Exercise.fromJson(e)).toList());
         _currentActiveIndexes = List.filled(_exercises.length, 0);
+        _exerciseLengths = List.generate(_exercises.length, (index) => []);
+        _buttonKeys = List.generate(_exercises.fold(0, (previousValue, element) => previousValue + element.dataBagian!.fold(0, (previousValue, element) => previousValue + element.dataSubBagian!.length)), (index) => GlobalKey());
 
+        int foldedLength = 0;
         for (int i = 0; i < _exercises.length; i++) {
-          _currentActiveIndexes[i] = (_exercises[i].dataMapel?.lastIndexWhere((element) => element.completed ?? false) ?? 0) + 1;
+          // _exercises[i].dataBagian?.fold(0, (previousValue, element) {
+          //   return previousValue + element.dataSubBagian.lastIndexWhere(test);
+          // })
+          // _currentActiveIndexes[i] = (_exercises[i].dataBagian![j].dataSubBagian?.lastIndexWhere((element) => element.completed ?? false) ?? 0) + 1;
+
+          int lastActiveIndex = 0;
+          for (int j = 0; j < _exercises[i].dataBagian!.length; j++) {
+            for (int k = 0; k < _exercises[i].dataBagian![j].dataSubBagian!.length; k++) {
+              if (_exercises[i].dataBagian![j].dataSubBagian![k].completed ?? false) lastActiveIndex = foldedLength + k + 1;
+            }
+
+            _exerciseLengths[i].add(foldedLength);
+            foldedLength += _exercises[i].dataBagian![j].dataSubBagian!.length;
+          }
+
+          _currentActiveIndexes[i] = lastActiveIndex;
         }
 
         // TODO: Implement current offset for active level
@@ -70,6 +89,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
         if (event.withLoadingDialog) NavigationHelper.back();
         event.completer?.complete(false);
         ApiHelper.handleError(e);
+        emit(ExerciseError());
         return;
       }
 
@@ -78,11 +98,20 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
       emit(_exerciseDataLoaded);
     });
 
+    on<SetExerciseSelectedCategoryIndex>((event, emit) {
+      _selectedCategoryIndex = event.index;
+      emit(_exerciseDataLoaded);
+    });
+
     on<ExerciseStartPressed>((event, emit) async {
       showLoadingDialog();
 
+      _selectedCategoryIndex = event.categoryIndex;
+      _selectedPartIndex = event.partIndex;
+      _selectedSubsectionIndex = event.index;
+
       try {
-        _questionData = await ApiHelper.get(pathUrl: '${dotenv.env['ENDPOINT_EXERCISE_START']!}/${event.value.dataMapel![_selectedCategoryIndex].bagianId}/${event.value.dataMapel![_selectedCategoryIndex].subBagianId}/${event.value.dataMapel![_selectedCategoryIndex].categoryId}').then((value) => (value['data']['data_soal'] as List).map((e) => DataSoal.fromJson(e)).toList());
+        _questionData = await ApiHelper.get(pathUrl: '${dotenv.env['ENDPOINT_EXERCISE_START']!}/${event.value.dataBagian![event.partIndex].bagianId}/${event.value.dataBagian![event.partIndex].dataSubBagian![event.index].subBagianId}/${event.value.categoryId}').then((value) => (value['data']['data_soal'] as List).map((e) => DataSoal.fromJson(e)).toList());
       } catch (e) {
         NavigationHelper.back();
         ApiHelper.handleError(e);
@@ -116,7 +145,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
     });
   }
 
-  final List<GlobalKey> _buttonKeys = List.generate(16, (index) => GlobalKey());
+  List<GlobalKey> _buttonKeys = [];
 
   final PageController _pageControllerAssesment = PageController();
 
@@ -130,9 +159,12 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
   final Map<int, int> _selectedAnswers = {};
 
   List<int> _currentActiveIndexes = [];
+  List<List<int>> _exerciseLengths = [];
   int _currentQuestionDataIndex = 0;
   int _selectedAnswerIndex = -1;
   int _selectedCategoryIndex = 0;
+  int _selectedPartIndex = 0;
+  int _selectedSubsectionIndex = 0;
 
   ExerciseDataLoaded get _exerciseDataLoaded => ExerciseDataLoaded(
         buttonKeys: _buttonKeys,
@@ -142,6 +174,7 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
         questionData: _questionData,
         wrongQuestionData: _wrongQuestionData,
         currentActiveIndexes: _currentActiveIndexes,
+        exerciseLengths: _exerciseLengths,
         currentQuestionDataIndex: _currentQuestionDataIndex,
         selectedAnswerIndex: _selectedAnswerIndex,
         selectedCategoryIndex: _selectedCategoryIndex,
@@ -245,14 +278,8 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
   }
 
   Future<void> _goToNextAssesmentPage() async {
-    if (_currentQuestionDataIndex ==
-        (_questionData.length -
-            1 +
-            (_wrongQuestionData.isNotEmpty
-                ? 1
-                : _wrongQuestionData.length > 1
-                    ? _wrongQuestionData.length - 1
-                    : 0))) {
+    // if (_currentQuestionDataIndex == (_questionData.length - 1 + (_wrongQuestionData.isNotEmpty ? 1 : _wrongQuestionData.length > 1 ? _wrongQuestionData.length - 1 : 0))) {
+    if (_currentQuestionDataIndex == (_questionData.length - 1 + (_wrongQuestionData.isNotEmpty ? _wrongQuestionData.length - 1 : 0))) {
       await showInformationDialog(
         titleText: 'Selamat!',
         'Kamu telah menyelesaikan halaman penilaian',
@@ -262,10 +289,10 @@ class ExerciseBloc extends Bloc<ExerciseEvent, ExerciseState> {
       showLoadingDialog();
 
       try {
-        Exercise currentExercise = _exercises[_currentActiveIndexes[_selectedCategoryIndex]];
+        Exercise currentExercise = _exercises[_selectedCategoryIndex];
 
         await ApiHelper.post(
-          pathUrl: '${dotenv.env['ENDPOINT_EXERCISE_SUBMIT']!}/${currentExercise.dataMapel![_selectedCategoryIndex].bagianId}/${currentExercise.dataMapel![_selectedCategoryIndex].subBagianId}/${currentExercise.dataMapel![_selectedCategoryIndex].categoryId}',
+          pathUrl: '${dotenv.env['ENDPOINT_EXERCISE_SUBMIT']!}/${currentExercise.dataBagian![_selectedPartIndex].bagianId}/${currentExercise.dataBagian![_selectedPartIndex].dataSubBagian![_selectedSubsectionIndex].subBagianId}/${currentExercise.categoryId}',
           body: {
             'soal_id': _selectedAnswers.keys.toList(),
             'jawaban': _selectedAnswers.values.toList(),

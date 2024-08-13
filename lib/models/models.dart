@@ -97,30 +97,36 @@ class Leaderboard with _$Leaderboard {
 class Exercise with _$Exercise {
   factory Exercise({
     @JsonKey(name: 'category_id', fromJson: _parseInt) int? categoryId,
-    @JsonKey(name: 'data_mapel') List<ExerciseSubject>? dataMapel,
+    @JsonKey(name: 'nama_mapel') String? namaMapel,
+    @JsonKey(name: 'data_bagian') List<ExercisePart>? dataBagian,
   }) = _Exercise;
 
   factory Exercise.fromJson(Map<String, dynamic> json) => _$ExerciseFromJson(json);
 }
 
 @freezed
-class ExerciseSubject with _$ExerciseSubject {
-  factory ExerciseSubject({
-    @JsonKey(fromJson: _parseInt) int? id,
-    @JsonKey(name: 'remaja_id', fromJson: _parseInt) int? remajaId,
+class ExercisePart with _$ExercisePart {
+  factory ExercisePart({
     @JsonKey(name: 'bagian_id', fromJson: _parseInt) int? bagianId,
+    @JsonKey(name: 'nama_bagian') String? namaBagian,
+    @JsonKey(name: 'data_sub_bagian') List<ExerciseSubsection>? dataSubBagian,
+  }) = _ExercisePart;
+
+  factory ExercisePart.fromJson(Map<String, dynamic> json) => _$ExercisePartFromJson(json);
+}
+
+@freezed
+class ExerciseSubsection with _$ExerciseSubsection {
+  factory ExerciseSubsection({
     @JsonKey(name: 'sub_bagian_id', fromJson: _parseInt) int? subBagianId,
-    @JsonKey(name: 'activity_id', fromJson: _parseInt) int? activityId,
-    @JsonKey(name: 'category_id', fromJson: _parseInt) int? categoryId,
-    @JsonKey(name: 'paket_id', fromJson: _parseInt) int? paketId,
+    @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian,
     @JsonKey(fromJson: _parseInt) int? nilai,
     @JsonKey(fromJson: _parseBool) bool? completed,
-    @JsonKey(name: 'nama_bagian') String? namaBagian,
-    @JsonKey(name: 'nama_sub_bagian') String? namaSubBagian,
-    @JsonKey(name: 'nama_mapel') String? namaMapel,
-  }) = _ExerciseSubject;
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+  }) = _ExerciseSubsection;
 
-  factory ExerciseSubject.fromJson(Map<String, dynamic> json) => _$ExerciseSubjectFromJson(json);
+  factory ExerciseSubsection.fromJson(Map<String, dynamic> json) => _$ExerciseSubsectionFromJson(json);
 }
 
 @freezed

@@ -31,10 +31,24 @@ class InitializeExerciseData extends ExerciseEvent {
   final bool withLoadingDialog;
 }
 
+class SetExerciseSelectedCategoryIndex extends ExerciseEvent {
+  SetExerciseSelectedCategoryIndex({required this.index});
+
+  final int index;
+}
+
 class ExerciseStartPressed extends ExerciseEvent {
-  ExerciseStartPressed({required this.value});
+  ExerciseStartPressed({
+    required this.value,
+    required this.categoryIndex,
+    required this.partIndex,
+    required this.index,
+  });
 
   final Exercise value;
+  final int categoryIndex;
+  final int partIndex;
+  final int index;
 }
 
 class SetSelectedAssessmentAnswer extends ExerciseEvent {

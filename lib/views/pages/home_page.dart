@@ -8,8 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  final TextEditingController _textControllerParentCode =
-      TextEditingController();
+  final TextEditingController _textControllerParentCode = TextEditingController();
 
   int _selectedIndex = 0;
 
@@ -18,8 +17,7 @@ class HomePageState extends State<HomePage> {
   Future<void> _handleSubmitParentCode() async {
     if (_textControllerParentCode.text.trim().isEmpty) {
       NavigationHelper.clearSnackBars();
-      NavigationHelper.showSnackBar(
-          const SnackBar(content: Text('Kode Orang Tua masih kosong')));
+      NavigationHelper.showSnackBar(const SnackBar(content: Text('Kode Orang Tua masih kosong')));
       return;
     }
 
@@ -54,10 +52,7 @@ class HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context) => currentUser?.role == UserRole.remaja &&
-          currentUser?.detail
-                  ?.mapOrNull(remaja: (value) => value.kodeOrangTua) ==
-              null
+  Widget build(BuildContext context) => currentUser?.role == UserRole.remaja && currentUser?.detail?.mapOrNull(remaja: (value) => value.kodeOrangTua) == null
       ? Scaffold(
           appBar: AppBar(
             leading: const IconButton(
@@ -92,25 +87,15 @@ class HomePageState extends State<HomePage> {
       : Scaffold(
           body: [
             const HomeFragment(),
-            if (currentUser?.role == UserRole.remaja)
-              const ExerciseFragment()
-            else if (currentUser?.role == UserRole.mentor)
-              const MeetFragment()
-            else
-              const HistoryExerciseFragment(),
+            if (currentUser?.role == UserRole.remaja) const ExerciseFragment() else if (currentUser?.role == UserRole.mentor) const MeetFragment() else const HistoryExerciseFragment(),
             if (currentUser?.role == UserRole.remaja) const MeetFragment(),
             const ProfileFragment(),
           ][_selectedIndex],
           bottomNavigationBar: NavigationBarTheme(
-            data: NavigationBarTheme.of(context).copyWith(
-                labelTextStyle: WidgetStatePropertyAll(Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(color: kColorBorder))),
+            data: NavigationBarTheme.of(context).copyWith(labelTextStyle: WidgetStatePropertyAll(Theme.of(context).textTheme.bodySmall?.copyWith(color: kColorBorder))),
             child: MyNavigationBar(
               backgroundColor: kColorWhite,
-              indicatorShape:
-                  const RoundedRectangleBorder(borderRadius: kBorderRadius),
+              indicatorShape: const RoundedRectangleBorder(borderRadius: kBorderRadius),
               elevation: 8.0,
               indicatorColor: kColorTonalBorder,
               destinations: [

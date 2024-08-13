@@ -16,6 +16,7 @@ class ExerciseDataLoaded extends ExerciseState {
     required this.questionData,
     required this.wrongQuestionData,
     required this.currentActiveIndexes,
+    required this.exerciseLengths,
     required this.currentQuestionDataIndex,
     required this.selectedAnswerIndex,
     required this.selectedCategoryIndex,
@@ -33,6 +34,7 @@ class ExerciseDataLoaded extends ExerciseState {
   final List<DataSoal> wrongQuestionData;
 
   final List<int> currentActiveIndexes;
+  final List<List<int>> exerciseLengths;
   final int currentQuestionDataIndex;
   final int selectedAnswerIndex;
   final int selectedCategoryIndex;

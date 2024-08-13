@@ -15,9 +15,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
     super.initState();
     _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 1));
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (mounted) {
-        _animationController.repeat(reverse: true);
-      }
+      if (mounted) _animationController.repeat(reverse: true);
     });
   }
 
@@ -32,112 +30,104 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
         builder: (context, stateExercise) {
           if (stateExercise is ExerciseDataLoaded) {
             return Scaffold(
-              body: Column(
-                children: [
-                  Container(
-                    height: MediaQuery.viewPaddingOf(context).top,
-                    color: kColorPrimary,
-                  ),
-                  Expanded(
-                    child: Stack(
-                      children: [
-                        CustomScrollView(
-                          controller: stateExercise.scrollController,
-                          slivers: [
-                            SliverStickyHeader(
-                              overlapsContent: false,
-                              header: buildContainerHeader(
-                                context: context,
-                                title: 'Bagian 1',
-                                mention: 'Pemula',
-                                description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 5 soal acak',
-                              ),
-                              sliver: buildPartBody(
-                                context: context,
-                                stateExercise: stateExercise,
-                                startIndex: 0,
-                              ),
-                            ),
-                            SliverStickyHeader(
-                              header: buildContainerHeader(
-                                context: context,
-                                title: 'Bagian 2',
-                                mention: 'Pejuang',
-                                description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 10 soal acak',
-                              ),
-                              sliver: buildPartBody(
-                                context: context,
-                                stateExercise: stateExercise,
-                                startIndex: 4,
-                                alignment: PartBodyAlignment.right,
-                              ),
-                            ),
-                            SliverStickyHeader(
-                              header: buildContainerHeader(
-                                context: context,
-                                title: 'Bagian 3',
-                                mention: 'Petualang',
-                                description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 15 soal acak',
-                              ),
-                              sliver: buildPartBody(
-                                context: context,
-                                stateExercise: stateExercise,
-                                startIndex: 8,
-                              ),
-                            ),
-                            SliverStickyHeader(
-                              header: buildContainerHeader(
-                                context: context,
-                                title: 'Bagian 4',
-                                mention: 'Legenda',
-                                description: 'Terdapat 4 sublevel dan tiap soal terdiri dari 20 soal acak',
-                              ),
-                              sliver: buildPartBody(
-                                context: context,
-                                stateExercise: stateExercise,
-                                startIndex: 12,
-                                alignment: PartBodyAlignment.right,
-                              ),
-                            ),
-                          ],
-                        ),
-                        if (mounted)
-                          AnimatedBuilder(
-                            animation: _animationController,
-                            builder: (context, child) {
-                              try {
-                                Offset? activeButtonOffset = (stateExercise.buttonKeys[stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex]].currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
-
-                                return Positioned(
-                                  top: (activeButtonOffset?.dy ?? 0.0) - 70.0 + (5.0 * CurvedAnimation(parent: _animationController, curve: Curves.easeInOut).value),
-                                  left: (activeButtonOffset?.dx ?? 0.0) - 10.0,
-                                  child: (activeButtonOffset?.dy ?? 0.0) < 180.0
-                                      ? Container()
-                                      : Stack(
-                                          children: [
-                                            SvgPicture.asset(
-                                              'assets/svgs/bubble message start.svg',
-                                            ),
-                                            Positioned(
-                                              top: 12.0,
-                                              left: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] > 0 ? 14.0 : 16.0,
-                                              child: Text(
-                                                stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] > 0 ? 'Lanjut' : 'Mulai',
-                                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                );
-                              } catch (e) {
-                                return Container();
-                              }
-                            },
-                          ),
-                      ],
+              body: DefaultTabController(
+                length: stateExercise.exercises.length,
+                initialIndex: stateExercise.selectedCategoryIndex,
+                child: Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.viewPaddingOf(context).top,
+                      color: kColorPrimary,
                     ),
-                  ),
-                ],
+                    Container(
+                      color: kColorPrimary,
+                      child: TabBar(
+                        isScrollable: true,
+                        tabAlignment: TabAlignment.start,
+                        labelColor: kColorWhite,
+                        indicatorColor: kColorWhite,
+                        dividerColor: kColorBorder,
+                        labelStyle: Theme.of(context).textTheme.bodyLarge,
+                        tabs: stateExercise.exercises.map((e) => Tab(text: e.namaMapel ?? '-')).toList(),
+                        onTap: (value) => MyApp.exerciseBloc.add(SetExerciseSelectedCategoryIndex(index: value)),
+                      ),
+                    ),
+                    Expanded(
+                      child: TabBarView(
+                        children: List.generate(
+                          stateExercise.exercises.length,
+                          (categoryIndex) {
+                            Exercise exercise = stateExercise.exercises[categoryIndex];
+
+                            return Stack(
+                              children: [
+                                CustomScrollView(
+                                  slivers: List.generate(
+                                    exercise.dataBagian?.length ?? 0,
+                                    (index) {
+                                      ExercisePart part = exercise.dataBagian![index];
+
+                                      return SliverStickyHeader(
+                                        // overlapsContent: index == 0,
+                                        header: buildContainerHeader(
+                                          context: context,
+                                          title: part.namaBagian ?? '-',
+                                          description: 'Terdapat ${part.dataSubBagian!.length} sublevel dari tiap soal, terdiri dari 5 soal acak',
+                                        ),
+                                        sliver: buildPartBody(
+                                          context: context,
+                                          stateExercise: stateExercise,
+                                          subsections: part.dataSubBagian!,
+                                          categoryIndex: categoryIndex,
+                                          partIndex: index,
+                                          alignment: index.isOdd ? PartBodyAlignment.left : PartBodyAlignment.right,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                                if (mounted)
+                                  AnimatedBuilder(
+                                    animation: _animationController,
+                                    builder: (context, child) {
+                                      try {
+                                        // Offset? activeButtonOffset = (stateExercise.buttonKeys[stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex]].currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
+                                        Offset? activeButtonOffset = (stateExercise.buttonKeys[(stateExercise.exerciseLengths[categoryIndex].firstOrNull ?? 0) + stateExercise.currentActiveIndexes[categoryIndex]].currentContext?.findRenderObject() as RenderBox?)?.localToGlobal(Offset.zero);
+
+                                        return Positioned(
+                                          top: (activeButtonOffset?.dy ?? 0.0) - 70.0 - 48.0 + (5.0 * CurvedAnimation(parent: _animationController, curve: Curves.easeInOut).value),
+                                          left: (activeButtonOffset?.dx ?? 0.0) - 10.0,
+                                          child: (activeButtonOffset?.dy ?? 0.0) < 180.0 + 48.0
+                                              ? Container()
+                                              : Stack(
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                      'assets/svgs/bubble message start.svg',
+                                                    ),
+                                                    Positioned(
+                                                      top: 12.0,
+                                                      left: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] > 0 ? 14.0 : 16.0,
+                                                      child: Text(
+                                                        stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] > 0 ? 'Lanjut' : 'Mulai',
+                                                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: kColorBorder),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                        );
+                                      } catch (e) {
+                                        return Container();
+                                      }
+                                    },
+                                  ),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           } else if (stateExercise is ExerciseError) {
@@ -163,7 +153,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
   Widget buildContainerHeader({
     required BuildContext context,
     required String title,
-    required String mention,
+    String? mention,
     required String description,
     double? topHeigth,
   }) =>
@@ -182,12 +172,7 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
           children: [
             DefaultTextStyle(
               style: Theme.of(context).textTheme.titleLarge!.copyWith(color: kColorWhite),
-              child: Row(
-                children: [
-                  Text('$title・'),
-                  Text(mention),
-                ],
-              ),
+              child: Text('$title ${(mention?.isNotEmpty ?? false) ? '・ $mention' : ''}'),
             ),
             const SizedBox(height: 8.0),
             Text(description, style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: kColorWhite)),
@@ -198,102 +183,47 @@ class _ExerciseFragmentState extends State<ExerciseFragment> with SingleTickerPr
   Widget buildPartBody({
     required BuildContext context,
     required ExerciseDataLoaded stateExercise,
-    required int startIndex,
+    required List<ExerciseSubsection> subsections,
+    required int categoryIndex,
+    required int partIndex,
     PartBodyAlignment alignment = PartBodyAlignment.left,
   }) {
     bool isLeft = alignment == PartBodyAlignment.left;
 
     return SliverToBoxAdapter(
       child: SizedBox(
-        height: 600.0,
+        height: subsections.length * 120.0 + 160.0,
         child: Stack(
           children: [
             Positioned(
               right: isLeft ? 10.0 : null,
               left: !isLeft ? 10.0 : null,
-              top: 300.0 - 102.5,
+              top: (subsections.length * 120.0 + 160.0) / 2 - 102.5,
               child: SvgPicture.asset(
                 'assets/svgs/${isLeft ? 'curly hair girl' : 'bearded man'}.svg',
                 width: 120.0,
                 height: 120.0,
               ),
             ),
-            // Positioned(
-            //   left: isLeft ? -10.0 : null,
-            //   right: !isLeft ? -10.0 : null,
-            //   child: SvgPicture.asset(
-            //     'assets/svgs/bird facing ${isLeft ? 'left' : 'right'}.svg',
-            //     width: 205.0,
-            //     height: 205.0,
-            //   ),
-            // ),
-            // Positioned(
-            //   right: isLeft ? -10.0 : null,
-            //   left: !isLeft ? -10.0 : null,
-            //   top: 300.0 - 102.5,
-            //   child: SvgPicture.asset(
-            //     'assets/svgs/bird facing ${isLeft ? 'right' : 'left'}.svg',
-            //     width: 205.0,
-            //     height: 205.0,
-            //   ),
-            // ),
-            // Positioned(
-            //   left: isLeft ? -10.0 : null,
-            //   right: !isLeft ? -10.0 : null,
-            //   bottom: 0.0,
-            //   child: SvgPicture.asset(
-            //     'assets/svgs/bird facing ${isLeft ? 'left' : 'right'}.svg',
-            //     width: 205.0,
-            //     height: 205.0,
-            //   ),
-            // ),
-            Positioned(
-              top: 80.0,
-              left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
-              right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
-              child: CircleExerciseButton(
-                key: stateExercise.buttonKeys[startIndex],
-                svgAsset: 'star',
-                onPressed: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex])) : () {},
-                enabled: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex,
-                ignorePointer: startIndex < stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex],
-              ),
-            ),
-            Positioned(
-              top: 200.0,
-              left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
-              right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
-              child: CircleExerciseButton(
-                key: stateExercise.buttonKeys[startIndex + 1],
-                svgAsset: 'padlock',
-                onPressed: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 1 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 1])) : () {},
-                enabled: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 1,
-                ignorePointer: startIndex + 1 < stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex],
-              ),
-            ),
-            Positioned(
-              top: 320.0,
-              left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
-              right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 64.0 : null,
-              child: CircleExerciseButton(
-                key: stateExercise.buttonKeys[startIndex + 2],
-                svgAsset: 'book',
-                onPressed: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 2 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 2])) : () {},
-                enabled: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 2,
-                ignorePointer: startIndex + 2 < stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex],
-              ),
-            ),
-            Positioned(
-              top: 440.0,
-              left: isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
-              right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - 32.0 : null,
-              child: CircleExerciseButton(
-                key: stateExercise.buttonKeys[startIndex + 3],
-                svgAsset: 'trophy',
-                onPressed: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 3 ? () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[startIndex + 3])) : () {},
-                enabled: stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex] >= startIndex + 3,
-                ignorePointer: startIndex + 3 < stateExercise.currentActiveIndexes[stateExercise.selectedCategoryIndex],
-              ),
+            ...List.generate(
+              subsections.length,
+              (index) {
+                int continousIndex = stateExercise.exerciseLengths[categoryIndex][partIndex] + index;
+                bool isMiddle = !(index == 0 || index == subsections.length - 1);
+
+                return Positioned(
+                  top: index == 0 ? 80 : 120.0 * index + 80.0,
+                  left: isLeft ? MediaQuery.sizeOf(context).width / 2 - (isMiddle ? 64.0 : 32.0) : null,
+                  right: !isLeft ? MediaQuery.sizeOf(context).width / 2 - (isMiddle ? 64.0 : 32.0) : null,
+                  child: CircleExerciseButton(
+                    key: stateExercise.buttonKeys[continousIndex],
+                    svgAsset: ['star', 'padlock', 'book', 'trophy'][index % 4],
+                    onPressed: () => MyApp.exerciseBloc.add(ExerciseStartPressed(value: stateExercise.exercises[categoryIndex], categoryIndex: categoryIndex, partIndex: partIndex, index: index)),
+                    enabled: continousIndex - (categoryIndex > 0 ? stateExercise.exerciseLengths[categoryIndex].first : 0) <= stateExercise.currentActiveIndexes[categoryIndex],
+                    ignorePointer: continousIndex - (categoryIndex > 0 ? stateExercise.exerciseLengths[categoryIndex].first : 0) < stateExercise.currentActiveIndexes[categoryIndex],
+                  ),
+                );
+              },
             ),
           ],
         ),
